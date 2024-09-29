@@ -1,0 +1,10 @@
+nav {
+    display: none;
+}
+
+main {
+    background-image: url('../images/layer-ink.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
