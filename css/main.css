@@ -30,7 +30,7 @@ footer {
     bottom: 10px;
 }
 
-.imprint, .index {
+.imprintButton, .indexButton {
     display: block;
     background-color: blue;
     color: white;

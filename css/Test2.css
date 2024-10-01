@@ -1,0 +1,24 @@
+#player {
+    width: 50%;
+}
+
+#factcheck {
+    width: 46%;
+    height: 390px;
+    margin-right: 2%;
+    background-color: #d8d8d8;
+    float: right;
+}
+
+#factcheck h3 {
+    height: 25px;
+    text-align: center;
+}
+
+#checkArea {
+    height: 365px;
+    background-color: white;
+    border-bottom: 2px solid #d8d8d8;
+    border-left: 2px solid #d8d8d8;
+    border-right: 2px solid #d8d8d8;
+}
