@@ -48,20 +48,24 @@ window.onload = function() {
                 defensiveArchitecture.classList.add('defensiveArchitectureColored');
                 isHoveringDefensiveArchitecture = true;
                 mainElement.addEventListener('click', redirectToDefensiveArchitecture);
+                mainElement.style.cursor = 'pointer'; // Change cursor to pointer
             } else if (!isInDefensiveArchitecture && isHoveringDefensiveArchitecture) {
                 defensiveArchitecture.classList.remove('defensiveArchitectureColored');
                 isHoveringDefensiveArchitecture = false;
                 mainElement.removeEventListener('click', redirectToDefensiveArchitecture);
+                mainElement.style.cursor = 'default'; // Change cursor back to default
             }
 
             if (isInSquattedHouse && !isHoveringSquattedHouse) {
                 squattedHouse.classList.add('squattedHouseColored');
                 isHoveringSquattedHouse = true;
                 mainElement.addEventListener('click', redirectToSquattedHouse);
+                mainElement.style.cursor = 'pointer'; // Change cursor to pointer
             } else if (!isInSquattedHouse && isHoveringSquattedHouse) {
                 squattedHouse.classList.remove('squattedHouseColored');
                 isHoveringSquattedHouse = false;
                 mainElement.removeEventListener('click', redirectToSquattedHouse);
+                mainElement.style.cursor = 'default'; // Change cursor back to default
             }
         });
 
