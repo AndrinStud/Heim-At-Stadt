@@ -7,4 +7,32 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    margin: 0 auto;
+}
+
+.picturePuzzlePart {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+}
+
+#defensiveArchitecture {
+    background-image: url('../images/layer-greyscale-1.png');
+    pointer-events: auto;
+}
+
+#squattedHouse {
+    background-image: url('../images/layer-greyscale-2.png');
+}
+
+.defensiveArchitectureColored {
+    background-image: url('../images/layer-color-1.png') !important;
+}
+
+.squattedHouseColored {
+    background-image: url('../images/layer-color-2.png') !important;
 }

@@ -1,15 +1,29 @@
-import { Innertube } from "./youtubei.js";
+//import { Innertube } from "./youtubei.js";
 
-const client = await Innertube.create();
+window.onload = function() {
+  alert("Test3.js");
+  main();
+}
 
-const videoInfo = await client.getInfo("CUvbAydBCNk");
+async function main() {
+  try {
+    const client = await Innertube.create();
+    console.log("Client created:", client);
 
-const livechat = videoInfo.getLiveChat();
+    const videoInfo = await client.getInfo("CUvbAydBCNk");
+    console.log("Video info retrieved:", videoInfo);
 
-livechat.on("start", (initialData) => {
-  console.log(initialData);
-});
+    const livechat = videoInfo.getLiveChat();
+    console.log("Live chat initialized:", livechat);
 
-livechat.on("chat-update", (message) => {
-  console.log(message);
-});
+    livechat.on("start", (initialData) => {
+      console.log("Live chat started:", initialData);
+    });
+
+    livechat.on("chat-update", (message) => {
+      console.log("Chat update:", message);
+    });
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
