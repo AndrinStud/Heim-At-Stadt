@@ -9,16 +9,22 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+    <img src="images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt" class="logo">
     <header>
-        <img src="images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
-        <nav> <!-- Nur auf Mobile Geräten sichtbar -->
+        <nav>
             <ul>
-                <li>Serviced Apartments</li>
-                <li>Hausbesetzungen</li>
-                <li>Digitalisierung in der Stadt</li>
-                <li>Gemeinschaft in den Städten</li>
-                <li>Human Centered Design</li>
-                <li>Defensive Architektur</li>
+                <a href="sites/ServicedApartments.html"><li>Serviced Apartments</li></a>
+                <a href="sites/Hausbesetzung.html"><li id="navSquattedHouse">Hausbesetzung</li></a>
+                <a href="sites/SmartCity.html"><li>Smart City</li></a>
+                <a href="sites/DefensiveArchitektur.html"><li id="navDefensiveArchitecture">Defensive Architektur</li></a>
+                <li class="more">
+                    Hintergrund ▼
+                    <ul>
+                        <a href="https://open.spotify.com/user/31qms57eosf6edpkozi6zww6g5dy?si=4272e7a2907343e5" target="_blank"><li>Podcast</li></a>
+                        <a href="sites/UeberUns.html"><li>Über uns</li></a>
+                        <a href="sites/Impressum.html"><li>Impressum</li></a>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,9 +32,6 @@
         <section class="picturePuzzlePart" id="defensiveArchitecture"></section>
         <section class="picturePuzzlePart" id="squattedHouse"></section>
     </main>
-    <footer>
-        <a class="imprintButton" href="imprint.html">Impressum</a>
-    </footer>
     <script type="module" src="js/index.js"></script>
 </body>
 </html>

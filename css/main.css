@@ -1,3 +1,5 @@
+@import url('https://use.typekit.net/ayg5bwm.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +19,10 @@ main {
     width: 100%;
 }
 
+main h1 {
+    text-align: center;
+}
+
 img {
     width: 20%;
     display: block;
@@ -32,7 +38,7 @@ footer {
 
 .imprintButton, .indexButton {
     display: block;
-    background-color: blue;
+    background-color: #004027;
     color: white;
     border-radius: 15px;
     height: 25px;
@@ -41,4 +47,9 @@ footer {
     text-align: center;
     margin: 0 auto;
     text-decoration: none;
+    border: 0.5vh solid #00D072;
+    font-family: 'proxima-nova', sans-serif;
+    text-transform: uppercase;
+    font-size: 2vh;
+    font-weight: bold;
 }

@@ -1,3 +1,11 @@
+function redirectToDefensiveArchitecture() {
+    window.location.href = 'sites/DefensiveArchitektur.html';
+}
+
+function redirectToSquattedHouse() {
+    window.location.href = 'sites/Hausbesetzung.html';
+}
+
 window.onload = function() {
     // Schritt 1: Bild laden
     var mainElement = document.getElementById('picturePuzzle');
@@ -22,8 +30,9 @@ window.onload = function() {
         var defensiveArchitecture = document.getElementById('defensiveArchitecture');
         var squattedHouse = document.getElementById('squattedHouse');
 
-        // Schritt 3: Bereiche definieren und Hover-Ereignis hinzufügen
-        var isHovering = false;
+        // Schritt 3: Bildereiche definieren und Hover hinzufügen
+        var isHoveringDefensiveArchitecture = false;
+        var isHoveringSquattedHouse = false;
         mainElement.addEventListener('mousemove', function(event) {
             var rect = mainElement.getBoundingClientRect();
             var x = event.clientX - rect.left; // x position within the element
@@ -32,15 +41,44 @@ window.onload = function() {
             var xPercent = (x / rect.width) * 100;
             var yPercent = (y / rect.height) * 100;
 
-            var isInDefinedArea = xPercent >= 1 && xPercent <= 31 && yPercent >= 62 && yPercent <= 88;
+            var isInDefensiveArchitecture = xPercent >= 1 && xPercent <= 31 && yPercent >= 62 && yPercent <= 88;
+            var isInSquattedHouse = xPercent >= 72 && xPercent <= 99 && yPercent >= 28 && yPercent <= 75;
 
-            if (isInDefinedArea && !isHovering) {
+            if (isInDefensiveArchitecture && !isHoveringDefensiveArchitecture) {
                 defensiveArchitecture.classList.add('defensiveArchitectureColored');
-                isHovering = true;
-            } else if (!isInDefinedArea && isHovering) {
+                isHoveringDefensiveArchitecture = true;
+                mainElement.addEventListener('click', redirectToDefensiveArchitecture);
+            } else if (!isInDefensiveArchitecture && isHoveringDefensiveArchitecture) {
                 defensiveArchitecture.classList.remove('defensiveArchitectureColored');
-                isHovering = false;
+                isHoveringDefensiveArchitecture = false;
+                mainElement.removeEventListener('click', redirectToDefensiveArchitecture);
             }
+
+            if (isInSquattedHouse && !isHoveringSquattedHouse) {
+                squattedHouse.classList.add('squattedHouseColored');
+                isHoveringSquattedHouse = true;
+                mainElement.addEventListener('click', redirectToSquattedHouse);
+            } else if (!isInSquattedHouse && isHoveringSquattedHouse) {
+                squattedHouse.classList.remove('squattedHouseColored');
+                isHoveringSquattedHouse = false;
+                mainElement.removeEventListener('click', redirectToSquattedHouse);
+            }
+        });
+
+        // Schritt 4: Navigation definieren und Hover hinzufügen
+        var navDefensiveArchitecture = document.getElementById('navDefensiveArchitecture');
+        var navSquattedHouse = document.getElementById('navSquattedHouse');
+        navDefensiveArchitecture.addEventListener('mouseover', function() {
+            defensiveArchitecture.classList.add('defensiveArchitectureColored');
+        });
+        navDefensiveArchitecture.addEventListener('mouseout', function() {
+            defensiveArchitecture.classList.remove('defensiveArchitectureColored');
+        });
+        navSquattedHouse.addEventListener('mouseover', function() {
+            squattedHouse.classList.add('squattedHouseColored');
+        });
+        navSquattedHouse.addEventListener('mouseout', function() {
+            squattedHouse.classList.remove('squattedHouseColored');
         });
     };
 };
