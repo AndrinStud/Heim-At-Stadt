@@ -7,6 +7,14 @@ function redirectToSquattedHouse() {
 }
 
 window.onload = function() {
+    //Schritt 1: Toggle Menü einrichten
+    document.getElementById('toggleMenu').addEventListener('click', function() {
+        var menu = document.getElementById('menu');
+        var toggle = document.getElementById('toggleMenu');
+        menu.classList.toggle('open');
+        toggle.classList.toggle('open');
+      });
+
     // Schritt 1: Bild laden
     var mainElement = document.getElementById('picturePuzzle');
     var computedStyle = getComputedStyle(mainElement);
