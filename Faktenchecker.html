@@ -6,7 +6,7 @@
     <title>Heim@Stadt - Player Testing 2</title>
     <link rel="icon" type="image/x-icon" href="images/WebsiteIcon.png">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/Test2.css">
+    <link rel="stylesheet" href="css/factcheck.css">
 </head>
 <body>
     <header>
@@ -59,8 +59,12 @@
 
         function onPlayerStateChange(event) {
           if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 8000);
-            setTimeout(showFact('green', '​​Tatsächlich stehen eine Menge der Gebäude in Berlin leer.'), 6000);
+            setTimeout(function() {
+              showFact('green', '​​Tatsächlich stehen eine Menge der Gebäude in Berlin leer.');
+            }, 6000);
+            setTimeout(function() {
+              showFact('red', '​​Das ist ein falscher Fakt!');
+            }, 10000);
             done = true;
           }
         }
