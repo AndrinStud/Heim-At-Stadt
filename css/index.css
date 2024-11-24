@@ -63,6 +63,10 @@ nav ul li {
     width: 3vw;
 }
 
+.more {
+    width: 15%;
+}
+
 nav ul .more ul {
     display: none;
 }
@@ -123,4 +127,17 @@ main {
 
 .squattedHouseColored {
     background-image: url('../images/layer-color-2.png') !important;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: space-around;
+}
+
+.socialMedia a {
+    width: 30%;
+}
+
+.socialMedia img {
+    width: 100%;
 }
