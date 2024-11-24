@@ -21,7 +21,8 @@
               "README.md",
               ".git",
               ".DS_Store",
-              ".gitignore"
+              ".gitignore",
+              "sql"
           ]
       }
    
@@ -33,5 +34,9 @@
 
     	OAUTH2_CLIENTID=GOOGLE_API_OAUTH2.0_CLIENT_ID
     	OAUTH2_CLIENTSECRET=GOOGLE_API_OAUTH2.0_CLIENT_SECRET
+        DB_HOST=DATENBANKHOST
+        DB_NAME=DATENBANKNAME
+        DB_USER=BENUTZERNAME
+        DB_PASS=PASSWORT
 
-    > **Wichtig:** *GOOGLE_API_OAUTH2.0_CLIENT_ID* und *GOOGLE_API_OAUTH2.0_CLIENT_SECRET* müssen durch deine Anmeldedaten zur Tokengewinnung bei Google API OAuth 2.0 ersetzt werden.
+    > **Wichtig:** *GOOGLE_API_OAUTH2.0_CLIENT_ID* und *GOOGLE_API_OAUTH2.0_CLIENT_SECRET* müssen durch deine Anmeldedaten zur Tokengewinnung bei Google API OAuth 2.0 ersetzt werden. DATENBANKHOST, DATENBANKNAME, BENUTZERNAME und PASSWORT müssen durch die Anmeldedaten der Datenbank deines Entwicklungsserver ersetzt werden.
