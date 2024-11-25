@@ -2,6 +2,10 @@
     session_start();
     $firstEmpty = true;
     $sites;
+
+    if (isset($_GET['activate_livechat_bots'])) {
+        require_once('livechat_botactivation.php');
+    }
     
     function showTokenIfExists($index) {
         global $firstEmpty;
