@@ -1,11 +1,9 @@
 <?php
+    require_once 'config.php';
+    $pdo = new PDO($dsn, $db_user, $db_pass, $options);
     session_start();
     $firstEmpty = true;
     $sites;
-
-    if (isset($_GET['activate_livechat_bots'])) {
-        require_once('livechat_botactivation.php');
-    }
     
     function showTokenIfExists($index) {
         global $firstEmpty;
@@ -23,8 +21,7 @@
 
     function loadSitesSelect() {
         global $sites;
-        require_once 'config.php';
-        $pdo = new PDO($dsn, $db_user, $db_pass, $options);
+        global $pdo;
         $stmt = $pdo->query("SELECT id, name FROM site");
         $sites = $stmt->fetchAll();
     }
@@ -92,10 +89,12 @@
     </tr>
     <tr>
         <td><?php require_once('tokendelete.php') ?></td>
-        <td id="activateLivestreamBots">
-            <select id="siteSelect">
-                <option id="tokenWarning">Fülle zuerst alle Tokens aus!</option>
-            </select>
+        <td>
+            <form action="livechatcreator.php" method="post" id="activateLivestreamBots">
+                <select id="siteSelect" name="site">
+                    <option id="tokenWarning">Fülle zuerst alle Tokens aus!</option>
+                </select>
+            </form>
         </td>
     </tr>
 </table>
@@ -119,6 +118,11 @@
   <input type="submit" value="Submit">
 </form>
 -->
+<?php
+if (isset($_POST['site'])) {
+        require_once('livechat_botactivation.php');
+    }
+?>
     </main>
     <footer>
         <a class="indexButton" href="https://heimatstadt.info/">Zur Startseite</a>
@@ -149,9 +153,9 @@
 
         // Zeige Livechat Bots aktivieren Link an
         let liveChatBotsStartCell = document.getElementById('activateLivestreamBots');
-        let activateLivechatBots = document.createElement('a');
-        activateLivechatBots.href = '?activate_livechat_bots=1';
-        activateLivechatBots.innerText = 'Livechat Bots aktivieren';
+        let activateLivechatBots = document.createElement('input');
+        activateLivechatBots.type = 'submit';
+        activateLivechatBots.value = 'START LIVECHAT BOTS (Nach Knopfdruck 30s um Stream einzustellen)';
         liveChatBotsStartCell.appendChild(activateLivechatBots);
     }
 </script>

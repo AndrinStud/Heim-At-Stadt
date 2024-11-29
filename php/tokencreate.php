@@ -93,40 +93,9 @@ function http($url, $params = false)
     return json_decode($response);
 }
 
-// Hilfsfunktion: Führt eine HTTP-POST-Anfrage aus
-function http_post($url, $headers, $body)
-{
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    return json_decode($response);
-}
-
 // Hilfsfunktion: Base64-urlencoding
 function base64_urlencode($string)
 {
     return rtrim(strtr(base64_encode($string), '+/', '-_'), '=');
-}
-
-function postYtLivechatComment($livechatId, $comment, $accessToken) {
-    $url = 'https://youtube.googleapis.com/youtube/v3/liveChat/messages?part=snippet';
-    $headers = [
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . $accessToken
-    ];
-    $body = json_encode([
-        'snippet' => [
-            'type' => 'textMessageEvent',
-            'liveChatId' => $livechatId,
-            'textMessageDetails' => [
-                'messageText' => $comment
-            ]
-        ]
-    ]);
-    return http_post($url, $headers, $body);
 }
 ?>
