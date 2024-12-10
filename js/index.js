@@ -94,3 +94,82 @@ window.onload = function() {
         });
     };
 };
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const bubble = document.querySelector('.speech-bubble');
+    const logo = document.querySelector('.logo');
+    const closeButton = document.querySelector('.speech-bubble .close-button');
+
+    let bubbleVisible = false; // Track the visibility state
+
+    function positionBubble() {
+        const logoRect = logo.getBoundingClientRect();
+    
+        // Calculate the bubble's position above the logo
+        const bubbleX = logoRect.left + (logoRect.width / 2) - (bubble.offsetWidth / 2);
+        const bubbleY = logoRect.top - bubble.offsetHeight - 50; // Adjust the offset to 50px above the logo
+    
+        // Apply the calculated position
+        bubble.style.left = `${bubbleX}px`;
+        bubble.style.top = `${bubbleY}px`;
+    }
+
+    // Show the bubble with animation
+    function showBubble() {
+    if (!bubbleVisible) {
+        bubble.style.display = 'block'; // Ensure the bubble is visible
+        bubble.style.opacity = '0'; // Start invisible
+        bubble.style.transform = 'translateY(-10px)'; // Slight offset for animation
+
+        // Trigger animation
+        requestAnimationFrame(() => {
+            bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            bubble.style.opacity = '1';
+            bubble.style.transform = 'translateY(0)';
+        });
+
+        bubbleVisible = true; // Update state
+    }
+}
+
+    // Hide the bubble with animation
+    function hideBubble() {
+        if (bubbleVisible) {
+            bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            bubble.style.opacity = '0'; // Fade out
+            bubble.style.transform = 'translateY(-10px)'; // Move upward
+
+            // Wait for the transition to end before hiding completely
+            bubble.addEventListener(
+                'transitionend',
+                () => {
+                    bubble.style.display = 'none';
+                },
+                { once: true }
+            );
+
+            bubbleVisible = false; // Update state
+        }
+    }
+
+    // Show the bubble on hover over the logo
+    logo.addEventListener('mouseenter', function () {
+        showBubble();
+    });
+
+    // Hide the bubble on clicking the "X" button
+    closeButton.addEventListener('click', function () {
+        hideBubble();
+    });
+
+    // Reposition the bubble on window resize
+    window.addEventListener('resize', function () {
+        if (bubbleVisible) {
+            positionBubble();
+        }
+    });
+
+    // Initially show the bubble on page load
+    showBubble();
+});

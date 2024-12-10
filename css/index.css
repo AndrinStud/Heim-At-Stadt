@@ -22,9 +22,9 @@ a {
 #toggleMenu li {
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 13px solid white;
     transition: transform 0.5s ease-in-out;
     margin: 0 auto;
     margin-top: 0.8vh;
@@ -47,10 +47,10 @@ nav ul {
 
 nav ul li {
     color: white;
-    font-family: 'proxima-nova', sans-serif;
+    font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
-    font-size: 2vh;
-    font-weight: bold;
+    font-size: 1.7vh;
+    font-weight: 700;
 }
 
 .menuBlendInLi ul {
@@ -58,13 +58,26 @@ nav ul li {
     height: auto;
     border-left: 0.5vh solid #00D072;
     border-right: 0.5vh solid #00D072;
-    margin-top: 0.8vh;
+    margin-top: 1.8vh;
     text-align: center;
-    width: 3vw;
+    width: 40px;
 }
 
 .more {
     width: 15%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent; /* Match the size */
+    border-right: 8px solid transparent;
+    border-top: 13px solid white;
+    display: inline-block;
+    margin-left: 5px; /* Adjust spacing between text and triangle */
+    vertical-align: middle; /* Aligns with the text */
+    transition: transform 0.5s ease-in-out;
+    padding-bottom: 5px;
 }
 
 nav ul .more ul {
@@ -76,7 +89,7 @@ nav ul .more ul {
     height: auto;
     border-left: 0.5vh solid #00D072;
     border-right: 0.5vh solid #00D072;
-    margin-top: 0.8vh;
+    margin-top: 1.85vh;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -140,4 +153,112 @@ main {
 
 .socialMedia img {
     width: 100%;
+}
+
+/* Positioning and styling the speech bubble */
+.speech-bubble {
+    position: fixed; /* Fix the bubble in the viewport */
+    width: auto; /* Automatically size the bubble based on content */
+    max-width: 600px; /* Limit the maximum width */
+    background: #000;
+    color: #fff;
+    padding: 30px;
+    padding-bottom: 40px; /* Extra padding for the arrow */
+    box-sizing: border-box;
+    border: 0.5vh solid #00D072;
+    text-align: left;
+    line-height: 1.5;
+    z-index: 9999;
+
+    /* Center the bubble */
+    top: calc(50% - 200px); /* Center vertically, with an upward offset of 150px */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally using translate */
+
+    /* Smooth transitions */
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Arrow for the speech bubble */
+.speech-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.4vh; /* Fine-tune to perfectly connect the arrow */
+    width: 0;
+    height: 0;
+}
+
+/* Green border arrow (background layer) */
+.speech-arrow::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    border-left: calc(50px + 0.5vh) solid transparent;
+    border-right: calc(50px + 0.5vh) solid transparent;
+    border-top: calc(70px + 0.5vh) solid #00D072; /* Green border */
+    z-index: 1;
+}
+
+/* Black interior arrow (foreground layer) */
+.speech-arrow::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -0.5vh; /* Ensure it overlaps the bottom of the speech bubble */
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 70px solid #000000; /* Black arrow */
+    z-index: 2;
+}
+
+/* Positioning content inside the bubble */
+.speech-content {
+    position: relative;
+}
+
+.speech-content h3 {
+    margin-bottom: 10px;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.speech-content p {
+    font-family: 'proxima-nova', sans-serif;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Existing styles continued... */
+
+/* Ensure the speech bubble is visible when needed */
+.speech-bubble {
+    position: absolute;
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20px); /* Start with an upward offset */
+    transition: none; /* Transitions are added dynamically via JavaScript */
+}
+
+.speech-bubble.visible {
+    opacity: 1;
+    transform: translateY(0); /* Fully visible at its final position */
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
