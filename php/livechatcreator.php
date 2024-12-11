@@ -31,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heim@Stadt - Serviced Apartments</title>
+    <title>Heim@Stadt - Live Chat Creator</title>
     <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/livechatcreator.css">
@@ -98,26 +98,6 @@
         </td>
     </tr>
 </table>
-<!--
-<form action="livechatcreator.php" method="post">
-  <label for="livechatId">Livechat ID:</label><br>
-  <input type="text" id="livechatId" name="livechatId" required><br>
-  <label for="comment">Comment:</label><br>
-  <input type="text" id="comment" name="comment" value="Hallo Welt!" required><br><br>
-  <label for="tokenIndex">Select Access Token:</label><br>
-  <select id="tokenIndex" name="tokenIndex" required>
-    <?php
-    /*session_start();
-    if (isset($_SESSION['access_tokens'])) {
-        foreach ($_SESSION['access_tokens'] as $index => $token) {
-            echo '<option value="' . $index . '">Token ' . ($index + 1) . '</option>';
-        }
-    }*/
-    ?>
-  </select><br><br>
-  <input type="submit" value="Submit">
-</form>
--->
 <?php
 if (isset($_POST['site'])) {
         require_once('livechat_botactivation.php');
