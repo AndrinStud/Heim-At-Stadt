@@ -180,10 +180,6 @@ border-right: 2px solid #00D072; /* Grüner Rahmen rechts */
     padding: 10px 0px;
   }
 
-  .sub-col img svg {
-    fill: white;
-    stroke: white;
-}
   /* rotating text */
 
   .rotating-text {
@@ -251,4 +247,89 @@ border-right: 2px solid #00D072; /* Grüner Rahmen rechts */
   .andrin {
     color: #f1c40f;
   }
+
+/* Layout-Anpassung für iPhones (Portrait-Modus) */
+@media screen and (max-width: 768px) {
+
+    .rotator {
+        margin-top: 50px; /* Optionaler Abstand */
+        margin-left: 70px;
+        margin-bottom: 10px;
+    }
+
+.sub-col img{
+    width: 20px;
+    padding: 10px 10px;
+    }
+
+.rotating-text{
+    font-size: 16px;
+}
+    
+.logo img{
+    padding-top: 6px;
+}
+
+    .oben a{
+        font-size: 14px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-rows: auto auto auto; /* Drei Zeilen */
+      grid-template-columns: 1fr; /* Eine Spalte pro Zeile */
+      gap: 5px; /* Abstand zwischen den Zeilen */
+    }
+  
+    /* Erste Zeile: Logo links, "Nach oben" rechts */
+    .footer-row.top-row {
+      display: grid;
+      grid-template-columns: auto auto; /* Zwei Spalten */
+      align-items: center; /* Vertikal ausrichten */
+      gap: 0px; /* Abstand zwischen Logo und Nach oben */
+    }
+  
+    /* Logo bleibt links */
+    .footer-row.top-row .logo {
+      justify-self: start; /* Am Anfang der Zeile ausrichten */
+    }
+  
+    /* "Nach oben" bleibt rechts */
+    .footer-row.top-row .oben {
+      justify-self: end; /* Am Ende der Zeile ausrichten */
+    }
+  
+    /* Rotating Text (wird auf Zeile 3 verschoben) */
+    .footer-row.top-row .rotator {
+      grid-column: 1 / -1; /* Vollständige Breite */
+      grid-row: 2; /* Verschiebt in eine neue Zeile */
+      text-align: center; /* Zentriert den Text */
+    }
+  
+    /* Zweite Zeile (ursprüngliches Layout bleibt unverändert) */
+  .footer-row.bottom-row {
+    grid-row: 3; /* Bleibt in der dritten Zeile */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei Spalten */
+    gap: 0px; /* Abstand zwischen den Spalten */
+    align-items: center; /* Vertikal zentrieren */
+    font-size: 14px;
+  }
+
+  /* Zentriert "Impressum" und "Über uns" */
+  .footer-row.bottom-row .footer-col {
+    text-align: center; /* Horizontale Zentrierung */
+    display: flex; /* Flexbox aktivieren */
+    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center; /* Vertikale Zentrierung */
+  }
+
+  .footer-row.bottom-row .subgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Vier Spalten für Social Media Icons */
+    gap: 0px;
+  }
+.footer-inner{
+    margin-bottom: 30px;
+}
+}
   
