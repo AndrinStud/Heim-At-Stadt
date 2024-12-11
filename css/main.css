@@ -78,3 +78,177 @@ h1, h3, span {
     vertical-align: top;
     padding-left: 10px;
 }
+
+.footer {
+    background: #000;     /* Schwarzer Block */
+    color: #fff;
+    overflow: hidden; /* Verhindert Überlauf */
+    position: relative; /* Stellt sicher, dass alle Kind-Elemente sich korrekt einfügen */
+    width: 100%; /* Passt die Breite an das Eltern-Element an */
+    box-sizing: border-box; /* Bezieht Padding in die Breitenberechnung ein */
+    padding: 5vh 5vw 5vh 5vw;;
+  }
+  
+  .footer-inner {
+    display: grid;
+    grid-template-rows: auto auto; /* Zwei Reihen */
+    grid-template-columns: 1fr; /* Eine Spalte pro Zeile */
+    gap: 20px; /* Platz zwischen den Elementen */
+    align-items: center; /* Zentriert die Inhalte vertikal */
+    justify-content: center; /* Zentriert die Inhalte horizontal */
+    width: 100%; /* Nutzt den gesamten verfügbaren Platz */
+  }
+  
+  .footer-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei Spalten pro Zeile */
+    gap: 20px;
+  }
+  
+/* ZEILE 2 */
+
+.footer-row.bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei Spalten */
+    align-items: center;
+    text-align: center; /* Zentriert den Text */
+    border-top: 2px solid #00D072; /* Grüner Strich oben */
+    border-bottom: 2px solid #00D072; /* Grüner Strich unten */
+    margin-top: 30px;;
+}
+
+.footer-row.bottom-row .footer-col a {
+    text-decoration: underline; /* Underline the text */
+    text-decoration-color: white; /* White underline */
+    text-decoration-thickness: 1px; /* Thickness of the underline */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.col-with-subgrid .subgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Vier Spalten */
+    justify-content: center; /* Zentriert die Icons */
+    align-items: center;
+}
+
+.col-with-subgrid .subgrid .sub-col {
+    border-left: 2px solid #00D072; /* Grüner Rahmen links */
+    color: white; /* Schriftfarbe Weiß */
+}
+
+#last {
+border-right: 2px solid #00D072; /* Grüner Rahmen rechts */
+}
+/*ZEILE 2 FERTIG */
+  
+.footer-col {
+    /* Optional: Styling für einzelne Spalten */
+  }
+
+.rotator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .oben {
+    text-align: right; /* Text rechtsbündig */
+    margin: 0; /* Entfernt Außenabstände */
+}
+
+.oben a {
+    display: inline-block;
+    text-decoration: underline; /* Unterstreichen */
+    text-decoration-color: white; /* Unterstreichung in Weiß */
+    text-decoration-thickness: 1px; /* Dicke der Linie */
+    color: white;
+    border: 2px solid #00D072;
+    padding: 5px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Verhindert Zeilenumbruch */
+}
+  
+  .logo img {
+    width: 170px;
+  }
+
+  .sub-col img{
+    width: 30px;
+    padding: 10px 0px;
+  }
+
+  .sub-col img svg {
+    fill: white;
+    stroke: white;
+}
+  /* rotating text */
+
+  .rotating-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    transform: translateX(-80px);
+    text-transform: uppercase;
+  
+    p {
+      display: inline-flex;
+      margin: 0;
+      vertical-align: top;
+  
+      .word {
+        position: absolute;
+        display: flex;
+        opacity: 0;
+        text-transform: uppercase;
+  
+        .letter {
+          transform-origin: center center 25px;
+  
+          &.out {
+            transform: rotateX(90deg);
+            transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+          }
+          &.in {
+            transition: 0.38s ease;
+          }
+          &.behind {
+            transform: rotateX(-90deg);
+          }
+        }
+      }
+    }
+  }
+
+  
+  .heimatstadt {
+    color: #e74c3c;
+  }
+  
+  .elina {
+    color: #8e44ad;
+  }
+  
+  .patrick {
+    color: #3498db;
+  }
+  
+  .yuri {
+    color: #2ecc71;
+  }
+  
+  .andrea {
+    color: #f1c40f;
+  }
+
+  .jermyn {
+    color: #f1c40f;
+  }
+
+  .andrin {
+    color: #f1c40f;
+  }
+  
