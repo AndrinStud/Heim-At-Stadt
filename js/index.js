@@ -18,6 +18,15 @@ function redirectToPodcast() {
     window.open('https://open.spotify.com/user/31qms57eosf6edpkozi6zww6g5dy?si=4272e7a2907343e5', '_blank');
 }
 
+// Hambuger Menu
+
+const menu_btn = document.querySelector('.hamburger-menu');
+const menu = document.querySelector('.mobile-nav');
+
+menu_btn.addEventListener('click', () => {
+  menu.classList.toggle('open');
+});
+
 window.onload = function() {
     //Schritt 1: Toggle Menü einrichten
     document.getElementById('toggleMenu').addEventListener('click', function() {
@@ -328,18 +337,3 @@ $.each(textArr, function(_i, v){
 })
 
 
-// Hambuger Menu
-
-document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.querySelector('.hamburger-menu');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    menuBtn.addEventListener('click', () => {
-        menuBtn.classList.toggle('opened');
-        mobileNav.classList.toggle('open');
-        
-        // Aria-Attribute aktualisieren
-        const isOpen = mobileNav.classList.contains('open');
-        menuBtn.setAttribute('aria-expanded', isOpen.toString());
-    });
-});
