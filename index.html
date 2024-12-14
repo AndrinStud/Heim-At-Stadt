@@ -13,18 +13,18 @@
         <nav class="navbar">
             <ul>
                 <li class="menuBlendInLi">
-                    <a href="sites/ServicedApartments.html">Serviced Apartments</a>
+                    <a href="sites/ServicedApartments.html" style="text-decoration: none; color: white;" id="navServicedApartments">Serviced Apartments</a>
                     <ul id="toggleMenu">
                         <li></li>
                     </ul>
                 </li>
                 <a href="sites/Hausbesetzung.html"><li id="navSquattedHouse">Hausbesetzung</li></a>
-                <a href="sites/SmartCity.html"><li>Smart City</li></a>
+                <a href="sites/SmartCity.html"><li id="navSmartCity">Smart City</li></a>
                 <a href="sites/DefensiveArchitektur.html"><li id="navDefensiveArchitecture">Defensive Architektur</li></a>
                 <li class="more">
                     Hintergrund <span class="triangle"></span>
                     <ul>
-                        <a href="https://open.spotify.com/user/31qms57eosf6edpkozi6zww6g5dy?si=4272e7a2907343e5" target="_blank"><li>Podcast</li></a>
+                        <a href="https://open.spotify.com/user/31qms57eosf6edpkozi6zww6g5dy?si=4272e7a2907343e5" target="_blank"><li id="navPodcast">Podcast</li></a>
                         <a href="sites/UeberUns.html"><li>Über uns</li></a>
                         <a href="sites/Impressum.html"><li>Impressum</li></a>
                         <a href="sites/Faktenchecker.php"><li>Facts Demo</li></a>
@@ -98,9 +98,15 @@
         </nav>
     </header>
     <main id="picturePuzzle">
-        <section class="picturePuzzlePart" id="defensiveArchitecture"></section>
-        <section class="picturePuzzlePart" id="squattedHouse"></section>
-
+        <section class="ppTop">
+            <article id="defensiveArchitecture"></article>
+            <article id="servicedApartments"></article>
+            <article id="smartCity"></article>
+        </section>
+        <section class="ppBottom">
+            <article id="podcast"></article>
+            <article id="squattedHouse"></article>
+        </section>
         <div class="hero">
             <img src="images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt" class="logo">
 
@@ -114,7 +120,6 @@
                 </div>
                 <div class="speech-arrow"></div>
             </div>
-            <!-- <div class="text">Wirf einen Blick hinter die Fassade.</div> -->
         </div>
     </main>
     <script type="module" src="js/index.js"></script>

@@ -51,7 +51,7 @@
           player = new YT.Player('player', {
             height: '390',
             width: '640',
-            videoId: 'ALo4HVSreIM',
+            videoId: 'aBkzpQLzJRM',
             events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
@@ -74,8 +74,26 @@
           if (event.data == YT.PlayerState.PLAYING && !done) {
             console.log('changed!');
             <?php
-                foreach ($facts as $fact) {
-                    echo 'setTimeout(function() { showFact("' . $fact['name'] . '", "' . $fact['comment'] . '"); }, ' . $fact['video_timestamp'] . ');';
+                $factsLength = count($facts);
+                $factCache = [];
+                for ($i = 0; $i < $factsLength; $i++) {
+                  $fact = $facts[$i];
+                  
+                  if ($i < $factsLength - 1 && $facts[$i + 1]['video_timestamp'] - $fact['video_timestamp'] == 1) {
+                    echo 'console.log("True for: ' . $fact['comment'] . '");';
+                    $factCache[] = $fact; // Corrected line
+                    continue;
+                  }
+
+                  if (count($factCache) > 0) {
+                    foreach ($factCache as $factCacheItem) {
+                      $fact['comment'] .= $factCacheItem['comment'];
+                    }
+                    $fact['video_timestamp'] = $factCache[0]['video_timestamp'];
+                    $factCache = [];
+                  }
+                  
+                  echo 'setTimeout(function() { showFact("' . $fact['name'] . '", "' . $fact['comment'] . '"); }, ' . $fact['video_timestamp'] . ');';
                 }
             ?>
             done = true;

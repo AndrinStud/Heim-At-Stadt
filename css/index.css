@@ -107,39 +107,82 @@ nav ul .more ul {
 }
 
 main {
-    background-image: url('../images/layer-ink.png');
+    background-image: url('../images/picture_puzzle/ink.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
     margin: 0 auto;
     height: 100vh;
 }
 
-.picturePuzzlePart {
+main section {
+    display: flex;
+}
+
+main section article {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 50%;
     height: 100%;
     z-index: -1;
 }
 
+.ppTop {
+    height: 39vh;
+}
+
+.ppTop article {
+    width: 30%;
+}
+
+.ppBottom {
+    height: 61vh;
+}
+
+.ppBottom article {
+    width: 50%;
+}
+
+
 #defensiveArchitecture {
-    background-image: url('../images/layer-greyscale-1.png');
-    pointer-events: auto;
+    background-image: url('../images/picture_puzzle/grey_top_left.webp');
+    width: 40%;
+}
+
+#servicedApartments {
+    background-image: url('../images/picture_puzzle/grey_top_center.webp');
+}
+
+#smartCity {
+    background-image: url('../images/picture_puzzle/grey_top_right.webp');
+}
+
+#podcast {
+    background-image: url('../images/picture_puzzle/grey_bottom_left.webp');
 }
 
 #squattedHouse {
-    background-image: url('../images/layer-greyscale-2.png');
+    background-image: url('../images/picture_puzzle/grey_bottom_right.webp');
 }
 
 .defensiveArchitectureColored {
-    background-image: url('../images/layer-color-1.png') !important;
+    background-image: url('../images/picture_puzzle/color_top_left.webp') !important;
+}
+
+.servicedApartmentsColored {
+    background-image: url('../images/picture_puzzle/color_top_center.webp') !important;
+}
+
+.smartCityColored {
+    background-image: url('../images/picture_puzzle/color_top_right.webp') !important;
+}
+
+.podcastColored {
+    background-image: url('../images/picture_puzzle/color_bottom_left.webp') !important;
 }
 
 .squattedHouseColored {
-    background-image: url('../images/layer-color-2.png') !important;
+    background-image: url('../images/picture_puzzle/color_bottom_right.webp') !important;
 }
 
 .socialMedia {
