@@ -101,15 +101,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const logo = document.querySelector('.logo');
     const closeButton = document.querySelector('.speech-bubble .close-button');
 
-    let bubbleVisible = false; // Track the visibility state
+    let bubbleVisible = false; // Track visibility state
+    let firstInteraction = true; // Track if it's the first interaction
 
     function positionBubble() {
         const logoRect = logo.getBoundingClientRect();
-    
+
         // Calculate the bubble's position above the logo
         const bubbleX = logoRect.left + (logoRect.width / 2) - (bubble.offsetWidth / 2);
-        const bubbleY = logoRect.top - bubble.offsetHeight - 50; // Adjust the offset to 50px above the logo
-    
+        const bubbleY = logoRect.top - bubble.offsetHeight - 50; // 50px above the logo
+
         // Apply the calculated position
         bubble.style.left = `${bubbleX}px`;
         bubble.style.top = `${bubbleY}px`;
@@ -117,21 +118,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show the bubble with animation
     function showBubble() {
-    if (!bubbleVisible) {
-        bubble.style.display = 'block'; // Ensure the bubble is visible
-        bubble.style.opacity = '0'; // Start invisible
-        bubble.style.transform = 'translateY(-10px)'; // Slight offset for animation
+        if (!bubbleVisible) {
+            bubble.style.display = 'block'; // Ensure visible
+            bubble.style.opacity = '0'; // Start invisible
+            bubble.style.transform = 'translateY(-10px)'; // Offset for animation
 
-        // Trigger animation
-        requestAnimationFrame(() => {
-            bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            bubble.style.opacity = '1';
-            bubble.style.transform = 'translateY(0)';
-        });
+            // Trigger animation
+            requestAnimationFrame(() => {
+                bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                bubble.style.opacity = '1';
+                bubble.style.transform = 'translateY(0)';
+            });
 
-        bubbleVisible = true; // Update state
+            bubbleVisible = true; // Update state
+        }
     }
-}
 
     // Hide the bubble with animation
     function hideBubble() {
@@ -140,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             bubble.style.opacity = '0'; // Fade out
             bubble.style.transform = 'translateY(-10px)'; // Move upward
 
-            // Wait for the transition to end before hiding completely
+            // Wait for transition to complete before hiding
             bubble.addEventListener(
                 'transitionend',
                 () => {
@@ -153,15 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Show the bubble on hover over the logo
-    logo.addEventListener('mouseenter', function () {
-        showBubble();
-    });
-
-    // Hide the bubble on clicking the "X" button
-    closeButton.addEventListener('click', function () {
-        hideBubble();
-    });
+    // Initially show the bubble on page load
+    showBubble();
+    positionBubble();
 
     // Reposition the bubble on window resize
     window.addEventListener('resize', function () {
@@ -170,8 +165,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Initially show the bubble on page load
-    showBubble();
+    // Close the bubble with the X button on first interaction
+    closeButton.addEventListener('click', function () {
+        hideBubble();
+        firstInteraction = false; // Disable close button after first interaction
+        closeButton.style.display = 'none'; // Hide the close button permanently
+    });
+
+    // Show/hide bubble on hover after the first interaction
+    logo.addEventListener('mouseenter', function () {
+        if (!firstInteraction) {
+            showBubble();
+        }
+    });
+
+    logo.addEventListener('mouseleave', function () {
+        if (!firstInteraction) {
+            hideBubble();
+        }
+    });
 });
 
 
@@ -219,3 +231,35 @@ let rotateText = () => {
 
 rotateText();
 setInterval(rotateText, 4000);
+
+
+
+
+
+
+var text = $('.text').text(),
+    textArr = text.split('');
+
+$('.text').html('');
+
+$.each(textArr, function(_i, v){
+  if(v == ' '){$('.text').append('<span class="space"></span>');}
+  $('.text').append('<span>'+v+'</span>');
+})
+
+
+// Hambuger Menu
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('opened');
+        mobileNav.classList.toggle('open');
+        
+        // Aria-Attribute aktualisieren
+        const isOpen = mobileNav.classList.contains('open');
+        menuBtn.setAttribute('aria-expanded', isOpen.toString());
+    });
+});

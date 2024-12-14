@@ -157,7 +157,10 @@ main {
 
 /* Positioning and styling the speech bubble */
 .speech-bubble {
-    position: fixed; /* Fix the bubble in the viewport */
+    position: absolute; /* or fixed */
+    top: calc(50% - 100px); /* Correctly calculates 100px above the center */
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: auto; /* Automatically size the bubble based on content */
     max-width: 600px; /* Limit the maximum width */
     background: #000;
@@ -169,11 +172,6 @@ main {
     text-align: left;
     line-height: 1.5;
     z-index: 9999;
-
-    /* Center the bubble */
-    top: calc(50% - 200px); /* Center vertically, with an upward offset of 150px */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally using translate */
 
     /* Smooth transitions */
     opacity: 1;
@@ -262,3 +260,58 @@ main {
     transform: translateY(0); /* Fully visible at its final position */
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+@media only screen and (max-width: 767px) {
+    .speech-bubble {
+        width: 75%; /* Adjust to fit most of the screen width */
+        max-width: none; /* Override max-width to allow flexibility */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .speech-arrow::before {
+        border-left: calc(30px + 0.5vh) solid transparent;
+        border-right: calc(30px + 0.5vh) solid transparent;
+        border-top: calc(40px + 0.5vh) solid #00D072; /* Adjust arrow size */
+    }
+
+    .speech-arrow::after {
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-top: 40px solid #000000; /* Adjust arrow size */
+    }
+}
+
+
+
+.text{
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    transform: translateY(-50%);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 60px;
+    span{
+      color: #0e3285;
+      font-size: 70px;
+      font-weight: bold;
+      display: inline-block;
+      letter-spacing: 5px;
+      transition: 2s;
+      text-shadow: 0px 0px 0px #f83512;
+      position: relative;
+      top: 0px;
+      left: 0px;
+      cursor: default;
+      &:hover{
+        text-shadow: -8px 8px 0px #cd0f0f;
+        transition: 0.3s;
+        top: -8px;
+        left: 8px;
+      }
+      &.space{width: 20px;height: 100%;}
+    }
+  }
