@@ -1,25 +1,25 @@
 function redirectToDefensiveArchitecture() {
-    window.location.href = 'sites/DefensiveArchitektur.html';
+    window.location.href = 'sites/DefensiveArchitektur.php';
 }
 
 function redirectToSquattedHouse() {
-    window.location.href = 'sites/Hausbesetzung.html';
+    window.location.href = 'sites/Hausbesetzung.php';
 }
 
 function redirectToServicedApartments() {
-    window.location.href = 'sites/ServicedApartments.html';
+    window.location.href = 'sites/ServicedApartments.php';
 }
 
 function redirectToSmartCity() {
-    window.location.href = 'sites/SmartCity.html';
+    window.location.href = 'sites/SmartCity.php';
 }
 
 function redirectToPodcast() {
-    window.open('https://open.spotify.com/user/31qms57eosf6edpkozi6zww6g5dy?si=4272e7a2907343e5', '_blank');
+    window.open('https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg', '_blank');
 }
 
 window.onload = function() {
-    //Schritt 1: Toggle Menü einrichten
+    //Schritt 1: Toggle Menü Desktop einrichten
     document.getElementById('toggleMenu').addEventListener('click', function() {
         var menu = document.getElementById('menu');
         var toggle = document.getElementById('toggleMenu');
@@ -38,13 +38,18 @@ window.onload = function() {
         var imageAspectRatio = backgroundImage.width / backgroundImage.height;
         var elementAspectRatio = elementWidth / elementHeight;
         var effectiveWidth;
+        var effectiveHeight;
         if (imageAspectRatio > elementAspectRatio) {
             effectiveWidth = elementWidth;
+            effectiveHeight = elementWidth / imageAspectRatio;
         } else {
+            effectiveHeight = elementHeight;
             effectiveWidth = elementHeight * imageAspectRatio;
         }
         console.log('Effective background image width: ' + effectiveWidth + 'px. Setting main element width to ' + effectiveWidth + 'px.');
+        console.log('Effective background image height: ' + effectiveHeight + 'px. Setting main element height to ' + effectiveHeight + 'px.');
         mainElement.style.width = effectiveWidth + 'px';
+        mainElement.style.height = effectiveHeight + 'px';
 
         //Schritte 2: Variablen für die Bereiche definieren
         var defensiveArchitecture = document.getElementById('defensiveArchitecture');
@@ -173,4 +178,21 @@ window.onload = function() {
             podcast.classList.remove('podcastColored');
         });
     };
+    
+    // Schritt 5: Toggle Menü Mobile einrichten
+    document.getElementById('hamburgerIcon').addEventListener('click', function() {
+        var mobileLinks = document.getElementById("mobileNavBottom");
+        var realMain = document.getElementById('main');
+        if (mobileLinks.style.display === "flex") {
+            mobileLinks.style.display = "none";
+            realMain.style.top = "50%";
+            realMain.style.transform = "translateY(-50%)";
+            realMain.style.bottom = "unset";
+        } else {
+            mobileLinks.style.display = "flex";
+            realMain.style.top = "unset";
+            realMain.style.transform = "none";
+            realMain.style.bottom = "0";
+        }
+    });
 };

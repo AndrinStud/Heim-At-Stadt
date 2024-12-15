@@ -15,6 +15,47 @@ a {
     color: white;
 }
 
+.logo {
+    height: 5vh;
+}
+
+#hamburgerIcon {
+    color: #004027;
+    font-size: 5vh;
+}
+
+.logoAndMobileNav div {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5vh;
+}
+
+#mobileNavBottom {
+    flex-direction: column;
+    background-color: #004027;
+    display: none;
+}
+
+#mobileNavBottom a:not(.someMobileNav a) {
+    text-align: center;
+    color: white;
+    font-family: 'proxima-nova', sans-serif;
+    text-transform: uppercase;
+    font-size: 3.5vh;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    border-bottom: 0.1vh solid white;
+    font-weight: bold;
+}
+
+#mobileNavBottom img {
+    width: 20%;
+}
+
+.someMobileNav {
+    justify-content: space-around !important;
+}
+
 .menuBlendInLi ul:hover {
     cursor: pointer;
 }
@@ -35,12 +76,16 @@ a {
     transform: rotate(180deg);
 }
 
+nav {
+    display: none;
+}
+
 nav ul {
     display: flex;
     justify-content: space-around;
     list-style: none;
     background-color: #004027;
-    height: 3.8vh;
+    height: 3.2vh;
     border-bottom: 0.5vh solid #00D072;
     padding-top: 0.7vh;
 }
@@ -49,8 +94,41 @@ nav ul li {
     color: white;
     font-family: 'proxima-nova', sans-serif;
     text-transform: uppercase;
-    font-size: 2vh;
+    font-size: 1.6vh;
     font-weight: bold;
+}
+
+@media (min-width: 574px) {
+    nav {
+        display: block;
+    }
+
+    .logoAndMobileNav {
+        display: block;
+    }
+
+    .logo {
+        position: fixed;
+        width: 20%;
+        left: 40%;
+        top: 50%;
+        transform: translateY(-50%);
+        height: unset;
+    }
+
+    #hamburgerIcon {
+        display: none;
+    }
+}
+
+@media (min-width: 716px) {
+    nav ul {
+        height: 3.8vh;
+    }
+
+    nav ul li {
+        font-size: 2vh;
+    }
 }
 
 .menuBlendInLi ul {
@@ -85,15 +163,7 @@ nav ul .more ul {
     padding-bottom: 0.8vh;
 }
 
-.logo {
-    position: fixed;
-    width: 20%;
-    left: 40%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-main {
+#picturePuzzle {
     background-image: url('../images/picture_puzzle/ink.webp');
     background-size: contain;
     background-repeat: no-repeat;
@@ -102,11 +172,11 @@ main {
     height: 100vh;
 }
 
-main section {
+#picturePuzzle section {
     display: flex;
 }
 
-main section article {
+#picturePuzzle section article {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -115,7 +185,7 @@ main section article {
 }
 
 .ppTop {
-    height: 39vh;
+    height: 39%;
 }
 
 .ppTop article {
@@ -123,7 +193,7 @@ main section article {
 }
 
 .ppBottom {
-    height: 61vh;
+    height: 61%;
 }
 
 .ppBottom article {
@@ -183,4 +253,12 @@ main section article {
 
 .socialMedia img {
     width: 100%;
+}
+
+main {
+    top: 50%;
+    transform: translateY(-50%);
+    position: fixed;
+    height: auto;
+    z-index: -1;
 }

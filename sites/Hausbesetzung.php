@@ -2,7 +2,7 @@
   require_once '../php/config.php';
   $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 
-  $stmt = $pdo->query("SELECT id FROM site WHERE name='Faktenchecker'");
+  $stmt = $pdo->query("SELECT id FROM site WHERE name='SmartCity'");
   $site = $stmt->fetch();
   $site_id = $site['id'];
 
@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heim@Stadt - Faktenchecker</title>
+    <title>Heim@Stadt - Hausbesetzungen</title>
     <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/factcheck.css">
@@ -26,7 +26,7 @@
     <header>
         <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
     </header>
-        <h1>Faktenchecker</h1>
+        <h1>Hausbesetzungen</h1>
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
         <aside id="player"></aside>
         <main id="factcheck">
@@ -51,7 +51,7 @@
           player = new YT.Player('player', {
             height: '390',
             width: '640',
-            videoId: 'aBkzpQLzJRM',
+            videoId: 'DroFUolP52Y',
             events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
