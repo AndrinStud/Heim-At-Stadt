@@ -38,7 +38,7 @@
 </head>
 <body>
     <header>
-        <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
+        <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
     </header>
     <main>
     <h1>Livechat Comment posten</h1>
