@@ -1,0 +1,216 @@
+#player {
+    width: 50%;
+}
+
+#factcheck {
+    width: 46%;
+    height: 390px;
+    margin-right: 2%;
+    background-color: #d8d8d8;
+    float: right;
+}
+
+#factcheck h3 {
+    height: 25px;
+    text-align: center;
+}
+
+#checkArea {
+    height: 365px;
+    background-color: white;
+    border-bottom: 2px solid #d8d8d8;
+    border-left: 2px solid #d8d8d8;
+    border-right: 2px solid #d8d8d8;
+}
+
+
+
+
+
+
+/* Yuri Footer */
+    body {
+        width: unset;
+    }
+
+    .footer {
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5vh 5vw;
+        bottom: 0;
+        margin-top: 4vh;
+    }
+
+    .footer-inner {
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .footer-row.bottom-row {
+        text-align: center;
+        border-top: 2px solid #00D072;
+        border-bottom: 2px solid #00D072;
+        margin-top: 30px;
+    }
+
+    .footer-row.bottom-row .footer-col a {
+        text-decoration: underline;
+        text-decoration-color: white;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .col-with-subgrid .subgrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .col-with-subgrid .subgrid .sub-col {
+        border-left: 2px solid #00D072;
+        color: white;
+    }
+
+    #last {
+        border-right: 2px solid #00D072;
+    }
+
+    .rotator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .oben {
+        text-align: right;
+        margin: 0;
+    }
+
+    .oben a {
+        text-decoration: underline;
+        text-decoration-color: white;
+        color: white;
+        border: 2px solid #00D072;
+        padding: 5px 20px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .logo img {
+        width: 170px;
+    }
+
+    .sub-col img {
+        width: 30px;
+        padding: 10px 0;
+    }
+
+    .rotating-text {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .heimatstadt { color: #e74c3c; }
+    .elina { color: #8e44ad; }
+    .patrick { color: #3498db; }
+    .yuri { color: #2ecc71; }
+    .andrea, .jermyn, .andrin { color: #f1c40f; }
+
+    @media screen and (max-width: 768px) {
+        .rotator {
+            margin-top: 50px;
+            margin-left: 70px;
+            margin-bottom: 10px;
+        }
+
+        .sub-col img {
+            width: 20px;
+            padding: 10px 10px;
+        }
+
+        .rotating-text {
+            font-size: 16px;
+        }
+
+        .logo img {
+            padding-top: 6px;
+        }
+
+        .oben a {
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            grid-template-rows: auto auto auto;
+            gap: 5px;
+        }
+
+        .footer-row.top-row {
+            grid-template-columns: auto auto;
+            align-items: center;
+            gap: 0;
+        }
+
+        .footer-row.top-row .logo {
+            justify-self: start;
+        }
+
+        .footer-row.top-row .oben {
+            justify-self: end;
+        }
+
+        .footer-row.top-row .rotator {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            text-align: center;
+        }
+
+        .footer-row.bottom-row {
+            grid-row: 3;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .footer-row.bottom-row .footer-col {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-row.bottom-row .subgrid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .footer-inner {
+            margin-bottom: 30px;
+        }
+    }
+
+    a[href="#top"] {
+        text-decoration: none;
+    }
+/* End Yuri Footer */

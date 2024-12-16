@@ -18,13 +18,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heim@Stadt - Serviced Apartments</title>
+    <script src="https://kit.fontawesome.com/e5010892c5.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/factcheck.css">
+    <link rel="stylesheet" href="../css/subpage.css">
 </head>
-<body>
+<body id="top">
     <header>
-        <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
+        <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
     </header>
         <h1>Serviced Apartments</h1>
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
@@ -33,9 +34,64 @@
             <h3>Faktencheck</h3>
             <article id="checkArea"></article>
 </main>
-    <footer>
-        <a class="indexButton" href="../index.html">Zur Startseite</a>
-    </footer>
+<footer class="footer">
+        <div class="footer-inner">
+          <!-- Erste Zeile mit drei Spalten -->
+          <div class="footer-row top-row">
+            <div class="footer-col">
+              <div class="logo">
+                <a href="https://heimatstadt.info/">
+                    <img src="../images/Logo_Heimatstadt.png" alt="heimatstadt logo">
+                </a>
+              </div>
+            </div>
+            <div class="footer-col rotator">
+                <div class="rotating-text">
+                  <p>Ein Projekt von <span class="word patrick">patrick</span></p>
+                </div>
+            </div>
+            <div class="footer-col oben">
+                <a href="#top">Nach oben</a>
+            </div>
+          </div>
+      
+          <!-- Zweite Zeile mit drei Spalten, mittlere Spalte unterteilt in vier Sub-Spalten -->
+          <div class="footer-row bottom-row">
+            <div class="footer-col">
+                <a href="../sites/Impressum.html">Impressum</a>
+            </div>
+            <div class="footer-col col-with-subgrid">
+              <!-- Hier in vier Spalten aufgeteilt -->
+              <div class="subgrid">
+                <div class="sub-col">
+                  <a href="https://www.instagram.com/heimatstadt.info/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </div>
+                <div class="sub-col">
+                  <a href="https://www.youtube.com/@heimatstadt" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </div>
+                <div class="sub-col">
+                  <a href="https://open.spotify.com/user/31qms57eosf6edpkozi6zww6g5dy?si=8c1c324d77c3422d" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-spotify"></i>
+                  </a>
+                </div>
+                <div class="sub-col" id="last">
+                  <a href="https://github.com/AndrinStud/Heim-At-Stadt" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+            </div>
+            </div>
+            <div class="footer-col">
+              <!-- Beispiel: Über uns -->
+              <a href="../sites/UeberUns.html">Über uns</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     <script>
         // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
