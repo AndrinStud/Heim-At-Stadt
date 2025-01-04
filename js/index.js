@@ -1,3 +1,5 @@
+import './textBubble.js';
+
 function redirectToDefensiveArchitecture() {
     window.location.href = 'sites/DefensiveArchitektur.php';
 }

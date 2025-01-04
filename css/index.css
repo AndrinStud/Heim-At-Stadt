@@ -98,6 +98,10 @@ nav ul li {
     font-weight: bold;
 }
 
+.speech-bubble {
+    display: none;
+}
+
 @media (min-width: 574px) {
     nav {
         display: block;
@@ -119,6 +123,97 @@ nav ul li {
     #hamburgerIcon {
         display: none;
     }
+
+    /* Speech Bubble START-------------------------------------------------------------------- */
+
+        .speech-bubble {
+            position: absolute; /* or fixed */
+            top: calc(50% - 100px); /* Correctly calculates 100px above the center */
+            left: 50%;
+            /*transform: translate(-50%, -50%);*/
+            max-width: 600px; /* Limit the maximum width */
+            background: #000;
+            color: #fff;
+            padding-bottom: 40px; /* Extra padding for the arrow */
+            box-sizing: border-box;
+            border: 0.5vh solid #00D072;
+            text-align: left;
+            line-height: 1.5;
+            z-index: 1;
+            opacity: 1;
+            transform: translateY(-20px); /* Start with an upward offset */
+            width: 75%; /* Adjust to fit most of the screen width */
+            padding: 20px; /* Adjust padding for smaller screens */
+        }
+
+        .speech-bubble.visible {
+            transform: translateY(0); /* Fully visible at its final position */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .speech-arrow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -0.4vh; /* Fine-tune to perfectly connect the arrow */
+            width: 0;
+            height: 0;
+        }
+
+        .speech-arrow::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            z-index: 1;
+            border-left: calc(30px + 0.5vh) solid transparent;
+            border-right: calc(30px + 0.5vh) solid transparent;
+            border-top: calc(40px + 0.5vh) solid #00D072; /* Adjust arrow size */
+        }
+
+        .speech-arrow::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -0.5vh; /* Ensure it overlaps the bottom of the speech bubble */
+            z-index: 2;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 40px solid #000000; /* Adjust arrow size */
+        }
+
+        .speech-content {
+            position: relative;
+        }
+
+        .speech-content h3 {
+            margin-bottom: 10px;
+            font-family: 'proxima-nova', sans-serif;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+
+        .speech-content p {
+            font-family: 'proxima-nova', sans-serif;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+    /* Speech Bubble END------------------------------------------------------------------------- */
 }
 
 @media (min-width: 716px) {
