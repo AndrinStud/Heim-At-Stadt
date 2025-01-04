@@ -19,10 +19,6 @@ main {
     width: 100%;
 }
 
-h1 {
-    text-align: center;
-}
-
 header img {
     width: 20%;
     display: block;
@@ -54,7 +50,7 @@ footer {
     font-weight: bold;
 }
 
-h1, h3, span {
+h1, h3, span, p {
     font-family: 'proxima-nova', sans-serif;
 }
 

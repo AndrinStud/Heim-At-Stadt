@@ -27,8 +27,9 @@
     <header>
         <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
     </header>
-        <h1>Defensive Architektur</h1>
-        <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+        <h1>Verborgene Barrieren: Wie defensive Architektur das Stadtbild der Schweiz prägt <span class="word andrin">von Andrin Schärli</span></h1>
+        <p>Defensive Architektur, von Skatestoppern bis hin zu ungemütlichen Sitzbänken, beeinflusst den öffentlichen Raum in Schweizer Städten auf subtile, aber tiefgreifende Weise. Diese Massnahmen sollen Sicherheit fördern und Nutzungskonflikte entschärfen, schränken jedoch gleichzeitig die Zugänglichkeit und Aneignung öffentlicher Orte ein. Entdecken Sie, wie diese Architektur gestaltet wird, welche Debatten sie auslöst und welche gesellschaftlichen Ziele damit verfolgt werden – von klassischer Musik am Hauptbahnhof bis hin zu Sperren, die Liegen oder Skaten verhindern. Ein Blick auf die Grenzen zwischen Funktionalität und sozialer Exklusion.</p>
+        <br />
         <aside id="player"></aside>
         <main id="factcheck">
             <h3>Faktencheck</h3>
@@ -107,7 +108,7 @@
           player = new YT.Player('player', {
             height: '390',
             width: '640',
-            videoId: 'AoDXLrZdwq8',
+            videoId: '0aMJ8EGVAEs',
             events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
@@ -163,7 +164,23 @@
             let accountProfilePicture = document.createElement('img');
             accountProfilePicture.src = '../images/' + type + '.png';
             let comment = document.createElement('span');
-            comment.innerText = text;
+
+            // Detect links in the text and convert them to <a> elements
+            let linkRegex = /(https?:\/\/[^\s]+)/g;
+            let parts = text.split(linkRegex);
+            parts.forEach(part => {
+                if (linkRegex.test(part)) {
+                    let link = document.createElement('a');
+                    link.href = part;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.innerText = part;
+                    comment.appendChild(link);
+                } else {
+                    comment.appendChild(document.createTextNode(part));
+                }
+            });
+
             let fact = document.createElement('div');
             let bgColor = 'white';
             switch (type) {

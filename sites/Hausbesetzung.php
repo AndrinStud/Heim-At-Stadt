@@ -2,7 +2,7 @@
   require_once '../php/config.php';
   $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 
-  $stmt = $pdo->query("SELECT id FROM site WHERE name='SmartCity'");
+  $stmt = $pdo->query("SELECT id FROM site WHERE name='Hausbesetzung'");
   $site = $stmt->fetch();
   $site_id = $site['id'];
 
@@ -27,8 +27,10 @@
     <header>
         <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
     </header>
-        <h1>Hausbesetzungen</h1>
-        <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <h1>Hausbesetzungen: Blick hinter die Mauern <span class="word yuri">von Yuri Fontanive</span></h1>
+    <p>Wer besetzt heute in der Schweiz überhaupt noch leerstehende Häuser und was bewegt die Menschen dazu? Ist die Hausbesetzer:innenbewegung noch so präsent wie früher – oder nur ein staubiges Kapitel der Geschichte?<br /><br />In diesem Film gehe ich den Fragen nach, was hinter den Fassaden besetzter Häuser steckt und was Hausbesetzungen heute noch bewirken können. Mit einem Blick auf die ELSI Hausbesetzung in Basel und die Perspektiven der Bewohner:innen zeigt sich, wie lebendig diese kontroverse Bewegung noch ist.</p>
+    <br />
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
         <aside id="player"></aside>
         <main id="factcheck">
             <h3>Faktencheck</h3>
@@ -107,7 +109,7 @@
           player = new YT.Player('player', {
             height: '390',
             width: '640',
-            videoId: 'DroFUolP52Y',
+            videoId: 'pHA20yu3Lco',
             events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
@@ -164,6 +166,23 @@
             accountProfilePicture.src = '../images/' + type + '.png';
             let comment = document.createElement('span');
             comment.innerText = text;
+
+                        // Detect links in the text and convert them to <a> elements
+                        let linkRegex = /(https?:\/\/[^\s]+)/g;
+            let parts = text.split(linkRegex);
+            parts.forEach(part => {
+                if (linkRegex.test(part)) {
+                    let link = document.createElement('a');
+                    link.href = part;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.innerText = part;
+                    comment.appendChild(link);
+                } else {
+                    comment.appendChild(document.createTextNode(part));
+                }
+            });
+            
             let fact = document.createElement('div');
             let bgColor = 'white';
             switch (type) {

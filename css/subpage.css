@@ -23,10 +23,21 @@
     border-right: 2px solid #d8d8d8;
 }
 
+h1 {
+    font-size: 1.5vw;
+    margin-left: 3vw;
+    width: 66vw;
+}
 
+h1 .word {
+    font-size: 1.2vw;
+}
 
-
-
+p {
+    font-size: 1.2vw;
+    width: 80vw;
+    margin-left: 3vw;
+}
 
 /* Yuri Footer */
     body {

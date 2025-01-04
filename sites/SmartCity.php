@@ -27,7 +27,9 @@
     <header>
         <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
     </header>
-        <h1>Smart City</h1>
+    <h1>Smart City: Chancen und Gefahren <span class="word jermyn">von Jermyn Dörig</span></h1>
+    <p>Zürich wurde zum fünften Mal zur weltweit smartesten Stadt ausgezeichnet. Doch was macht eine Stadt wirklich smart? In Smart Cities entscheiden etwa Strassenlaternen selbst, ob sie leuchten oder nicht. Die Stadtentwicklerin Anna Schindler erklärt, warum Zürich so erfolgreich ist. Der Präsident der Piratenpartei beleuchtet das Thema kritisch und warnt vor kommerziellen Interessen. Fachpersonen, darunter ein Hacker, analysieren brisante Fragen zu Datenschutz und Cyberangriffen. Am Ende bleibt die zentrale Frage: Wie schlau ist eine Smart City wirklich?</p>
+    <br />
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
         <aside id="player"></aside>
         <main id="factcheck">
@@ -107,7 +109,7 @@
           player = new YT.Player('player', {
             height: '390',
             width: '640',
-            videoId: 'DroFUolP52Y',
+            videoId: 'Ce4C790pRR8',
             events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
@@ -164,6 +166,23 @@
             accountProfilePicture.src = '../images/' + type + '.png';
             let comment = document.createElement('span');
             comment.innerText = text;
+
+                        // Detect links in the text and convert them to <a> elements
+                        let linkRegex = /(https?:\/\/[^\s]+)/g;
+            let parts = text.split(linkRegex);
+            parts.forEach(part => {
+                if (linkRegex.test(part)) {
+                    let link = document.createElement('a');
+                    link.href = part;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.innerText = part;
+                    comment.appendChild(link);
+                } else {
+                    comment.appendChild(document.createTextNode(part));
+                }
+            });
+            
             let fact = document.createElement('div');
             let bgColor = 'white';
             switch (type) {
