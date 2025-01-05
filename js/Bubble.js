@@ -1,3 +1,5 @@
+import { Cookie } from "./Cookie.js";
+
 document.addEventListener("DOMContentLoaded", function () {
     const bubble = document.querySelector('.speech-bubble');
     const logo = document.querySelector('.logo');
@@ -5,6 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let bubbleVisible = false; // Track visibility state
     let firstInteraction = true; // Track if it's the first interaction
+
+    let checkIfFirstInteraction = new Cookie('firstInteraction');
+    if (checkIfFirstInteraction.value == ''){
+        checkIfFirstInteraction.setCookie(0, 1);
+    }
+    else if (checkIfFirstInteraction.value == 1){
+        firstInteraction = false;
+        console.log('Die Bubble wurde in den letzten 24 Stunden bereits geschlossen.');
+    }
 
     function positionBubble() {
         const logoRect = logo.getBoundingClientRect();
@@ -58,8 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initially show the bubble on page load
     if (window.innerWidth >= 574) {
-        showBubble();
-        positionBubble();
+        if (firstInteraction) {
+            showBubble();
+            positionBubble();
+        }
+        else {
+            closeButton.style.display = 'none';
+        }
     }
 
     // Reposition the bubble on window resize
@@ -80,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeButton.addEventListener('click', function () {
         hideBubble();
         firstInteraction = false; // Disable close button after first interaction
+        checkIfFirstInteraction.setCookie(1, 1);
         closeButton.style.display = 'none'; // Hide the close button permanently
     });
 
@@ -87,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     logo.addEventListener('mouseenter', function () {
         if (!firstInteraction) {
             showBubble();
+            positionBubble();
         }
     });
 
