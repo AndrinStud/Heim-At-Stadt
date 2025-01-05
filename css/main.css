@@ -31,7 +31,7 @@ footer {
     bottom: 10px;
 }
 
-.imprintButton, .indexButton {
+.indexButton {
     display: block;
     background-color: #004027;
     color: white;

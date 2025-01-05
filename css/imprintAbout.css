@@ -14,7 +14,7 @@ footer {
     bottom: unset;
 }
 
-.imprintButton, .indexButton {
+.indexButton {
     height: 4vh;
     padding-top: 0.5vh;
     margin-top: 2vh;
@@ -32,4 +32,38 @@ section article {
 ul {
     list-style-position: inside;
     padding-left: 1%;
+}
+
+header img, .indexButton {
+    width: 80%;
+}
+
+@media (min-width: 350px) {
+    header img, .indexButton {
+        width: 60%;
+    }
+}
+
+@media (min-width: 450px) {
+    header img, .indexButton {
+        width: 45%;
+    }
+}
+
+@media (min-width: 600px) {
+    header img, .indexButton {
+        width: 30%;
+    }
+}
+
+@media (min-width: 850px) {
+    header img, .indexButton {
+        width: 20%;
+    }
+}
+
+@media (min-width: 1250px) {
+    header img, .indexButton {
+        width: 15%;
+    }
 }
