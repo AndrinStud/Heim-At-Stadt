@@ -1,0 +1,35 @@
+body, main {
+    width: unset;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+
+footer {
+    position: unset;
+    bottom: unset;
+}
+
+.imprintButton, .indexButton {
+    height: 4vh;
+    padding-top: 0.5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+section {
+    width: 80%;;
+}
+
+section article {
+    margin-bottom: 25px;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 1%;
+}
