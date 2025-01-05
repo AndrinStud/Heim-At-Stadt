@@ -130,54 +130,40 @@ class PicturePuzzle {
             this.mainElement.style.cursor = 'default';
         }
     }
+
+    static changeNavPuzzleItemConnection(puzzleItem, connectClass, connected){
+        if (!connected){
+            puzzleItem.classList.add(connectClass);
+        }
+        else {
+            puzzleItem.classList.remove(connectClass);
+        }
+    }
+
+    connectNavToPuzzle(){
+        let navAndPuzzleClasses = [
+            { piece: this.defensiveArchitecture, nav: document.getElementById('navDefensiveArchitecture'), class: 'defensiveArchitectureColored' },
+            { piece: this.squattedHouse, nav: document.getElementById('navSquattedHouse'), class: 'squattedHouseColored' },
+            { piece: this.servicedApartments, nav: document.getElementById('navServicedApartments'), class: 'servicedApartmentsColored' },
+            { piece: this.smartCity, nav: document.getElementById('navSmartCity'), class: 'smartCityColored' },
+            { piece: this.podcast, nav: document.getElementById('navPodcast'), class: 'podcastColored' }
+        ];
+
+        navAndPuzzleClasses.forEach(element => {
+            element.nav.addEventListener('mouseover', () => PicturePuzzle.changeNavPuzzleItemConnection(element.piece, element.class, false));
+            element.nav.addEventListener('mouseout', () => PicturePuzzle.changeNavPuzzleItemConnection(element.piece, element.class, true));
+        });
+    }
     
     static buildPuzzle(puzzle) {
         puzzle.setSize();
         puzzle.mainElement.addEventListener('mousemove', event => {
             puzzle.createPieces(event)
         });
-
-        // Schritt 4: Navigation definieren und Hover hinzufügen
-        let navDefensiveArchitecture = document.getElementById('navDefensiveArchitecture');
-        let navSquattedHouse = document.getElementById('navSquattedHouse');
-        let navServicedApartments = document.getElementById('navServicedApartments');
-        let navSmartCity = document.getElementById('navSmartCity');
-        let navPodcast = document.getElementById('navPodcast');
-
-        navDefensiveArchitecture.addEventListener('mouseover', function() {
-            puzzle.defensiveArchitecture.classList.add('defensiveArchitectureColored');
-        });
-        navDefensiveArchitecture.addEventListener('mouseout', function() {
-            puzzle.defensiveArchitecture.classList.remove('defensiveArchitectureColored');
-        });
-        navSquattedHouse.addEventListener('mouseover', function() {
-            puzzle.squattedHouse.classList.add('squattedHouseColored');
-        });
-        navSquattedHouse.addEventListener('mouseout', function() {
-            puzzle.squattedHouse.classList.remove('squattedHouseColored');
-        });
-        navServicedApartments.addEventListener('mouseover', function() {
-            puzzle.servicedApartments.classList.add('servicedApartmentsColored');
-        });
-        navServicedApartments.addEventListener('mouseout', function() {
-            puzzle.servicedApartments.classList.remove('servicedApartmentsColored');
-        });
-        navSmartCity.addEventListener('mouseover', function() {
-            puzzle.smartCity.classList.add('smartCityColored');
-        });
-        navSmartCity.addEventListener('mouseout', function() {
-            puzzle.smartCity.classList.remove('smartCityColored');
-        });
-        navPodcast.addEventListener('mouseover', function() {
-            puzzle.podcast.classList.add('podcastColored');
-        });
-        navPodcast.addEventListener('mouseout', function() {
-            puzzle.podcast.classList.remove('podcastColored');
-        });
+        puzzle.connectNavToPuzzle();
     }
 
     loadPuzzle() {
-        // Schritt 1: Bild laden
         var computedStyle = getComputedStyle(this.mainElement);
         this.backgroundImage.src = computedStyle.backgroundImage.slice(5, -2);
         this.backgroundImage.onload = PicturePuzzle.buildPuzzle(this);
