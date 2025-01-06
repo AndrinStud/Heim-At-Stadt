@@ -50,8 +50,6 @@ class PicturePuzzle {
             effectiveHeight = elementHeight;
             effectiveWidth = elementHeight * imageAspectRatio;
         }
-        console.log('Effective background image width: ' + effectiveWidth + 'px. Setting main element width to ' + effectiveWidth + 'px.');
-        console.log('Effective background image height: ' + effectiveHeight + 'px. Setting main element height to ' + effectiveHeight + 'px.');
         this.mainElement.style.width = effectiveWidth + 'px';
         this.mainElement.style.height = effectiveHeight + 'px';
     }
@@ -163,7 +161,7 @@ class PicturePuzzle {
         puzzle.connectNavToPuzzle();
     }
 
-    loadPuzzle() {
+    load() {
         var computedStyle = getComputedStyle(this.mainElement);
         this.backgroundImage.src = computedStyle.backgroundImage.slice(5, -2);
         this.backgroundImage.onload = PicturePuzzle.buildPuzzle(this);

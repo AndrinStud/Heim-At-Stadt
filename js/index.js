@@ -1,13 +1,18 @@
-import './Bubble.js';
+import { Bubble } from './Bubble.js';
 import { PicturePuzzle } from './PicturePuzzle.js';
 import { DesktopMenu, MobileMenu } from './Navigation.js';
+
+document.addEventListener("DOMContentLoaded", function () {
+    let mainBubble = new Bubble(true);
+    mainBubble.initMain();
+});
 
 window.onload = function() {
     new DesktopMenu();
     new MobileMenu();
 
     let picturePuzzle = new PicturePuzzle();
-    picturePuzzle.loadPuzzle();
+    picturePuzzle.load();
 
     // Bei Grössenänderung des Fensters das Puzzle neu laden
     let resizeTimeout;

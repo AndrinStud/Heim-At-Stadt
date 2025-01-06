@@ -1,116 +1,120 @@
 import { Cookie } from "./Cookie.js";
 
-document.addEventListener("DOMContentLoaded", function () {
-    const bubble = document.querySelector('.speech-bubble');
-    const logo = document.querySelector('.logo');
-    const closeButton = document.querySelector('.speech-bubble .close-button');
-
-    let bubbleVisible = false; // Track visibility state
-    let firstInteraction = true; // Track if it's the first interaction
-
-    let checkIfFirstInteraction = new Cookie('firstInteraction');
-    if (checkIfFirstInteraction.value == ''){
-        checkIfFirstInteraction.setCookie(0, 1);
+class Bubble {
+    constructor(mainBubble, bubbleX = null, bubbleY = null) {
+        this.bubble = document.querySelector('.speech-bubble');
+        this.bubbleX = bubbleX;
+        this.bubbleY = bubbleY;
+        if (mainBubble) {
+            this.logo = document.querySelector('.logo');
+            this.closeButton = document.querySelector('.speech-bubble .close-button');
+            this.bubbleVisible = false; // Track visibility state
+            this.firstInteraction = true; // Track if it's the first interaction
+            this.fiCookie = new Cookie('firstInteraction');
+            if (this.fiCookie.value == '')
+                this.fiCookie.setCookie(0, 1);
+            else if (this.fiCookie.value == 1)
+                this.firstInteraction = false;
+        }
+        window.addEventListener('resize', () => this.load());
     }
-    else if (checkIfFirstInteraction.value == 1){
-        firstInteraction = false;
-        console.log('Die Bubble wurde in den letzten 24 Stunden bereits geschlossen.');
+
+    setMainEventListeners() {
+        // Show/hide bubble on hover after the first interaction
+        this.logo.addEventListener('mouseenter', () => {
+            if (!this.firstInteraction) {
+                this.showAndPosition();
+            }
+        });
+
+        this.logo.addEventListener('mouseleave', () => {
+            if (!this.firstInteraction) {
+                this.hide();
+            }
+        });
+
+        this.closeButton.addEventListener('click', () => {
+            this.hide();
+            this.firstInteraction = false; // Disable close button after first interaction
+            this.fiCookie.setCookie(1, 1);
+            this.closeButton.style.display = 'none'; // Hide the close button permanently
+        });
     }
 
-    function positionBubble() {
-        const logoRect = logo.getBoundingClientRect();
-
-        // Calculate the bubble's position above the logo
-        const bubbleX = logoRect.left + (logoRect.width / 2) - (bubble.offsetWidth / 2);
-        const bubbleY = logoRect.top - bubble.offsetHeight - 50; // 50px above the logo
+    position() {
+        const logoRect = this.logo.getBoundingClientRect();
+        this.bubbleX = logoRect.left + (logoRect.width / 2) - (this.bubble.offsetWidth / 2);
+        this.bubbleY = logoRect.top - this.bubble.offsetHeight - 50; // 50px above the logo
 
         // Apply the calculated position
-        bubble.style.left = `${bubbleX}px`;
-        bubble.style.top = `${bubbleY}px`;
+        this.bubble.style.left = `${this.bubbleX}px`;
+        this.bubble.style.top = `${this.bubbleY}px`;
     }
 
-    // Show the bubble with animation
-    function showBubble() {
-        if (!bubbleVisible) {
-            bubble.style.display = 'block'; // Ensure visible
-            bubble.style.opacity = '0'; // Start invisible
-            bubble.style.transform = 'translateY(-10px)'; // Offset for animation
-
+    show() {
+        if (!this.bubbleVisible) {
+            this.bubble.style.display = 'block'; // Ensure visible
+            this.bubble.style.opacity = '0'; // Start invisible
+            this.bubble.style.transform = 'translateY(-10px)'; // Offset for animation
+    
             // Trigger animation
             requestAnimationFrame(() => {
-                bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                bubble.style.opacity = '1';
-                bubble.style.transform = 'translateY(0)';
+                this.bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                this.bubble.style.opacity = '1';
+                this.bubble.style.transform = 'translateY(0)';
             });
-
-            bubbleVisible = true; // Update state
+    
+            this.bubbleVisible = true; // Update state
         }
     }
 
-    // Hide the bubble with animation
-    function hideBubble() {
-        if (bubbleVisible) {
-            bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            bubble.style.opacity = '0'; // Fade out
-            bubble.style.transform = 'translateY(-10px)'; // Move upward
+    showAndPosition() {
+        this.show();
+        this.position();
+    }
 
+    hide() {
+        if (this.bubbleVisible) {
+            this.bubble.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            this.bubble.style.opacity = '0'; // Fade out
+            this.bubble.style.transform = 'translateY(-10px)'; // Move upward
+    
             // Wait for transition to complete before hiding
-            bubble.addEventListener(
+            this.bubble.addEventListener(
                 'transitionend',
                 () => {
-                    bubble.style.display = 'none';
+                    this.bubble.style.display = 'none';
                 },
                 { once: true }
             );
-
-            bubbleVisible = false; // Update state
+    
+            this.bubbleVisible = false; // Update state
         }
     }
 
-    // Initially show the bubble on page load
-    if (window.innerWidth >= 574) {
-        if (firstInteraction) {
-            showBubble();
-            positionBubble();
-        }
-        else {
-            closeButton.style.display = 'none';
-        }
-    }
-
-    // Reposition the bubble on window resize
-    window.addEventListener('resize', function () {
-        if (bubbleVisible) {
-            positionBubble();
-        }
-        if (window.innerWidth < 574) {
-            hideBubble();
+    load() {
+        if (this.bubbleVisible){
+            if (window.innerWidth < 574) {
+                this.hide();
+            }
+            else {
+                this.position();
+            }
         }
         else if (window.innerWidth >= 574) {
-            showBubble();
-            positionBubble();
+            this.showAndPosition();
         }
-    });
+    }
 
-    // Close the bubble with the X button on first interaction
-    closeButton.addEventListener('click', function () {
-        hideBubble();
-        firstInteraction = false; // Disable close button after first interaction
-        checkIfFirstInteraction.setCookie(1, 1);
-        closeButton.style.display = 'none'; // Hide the close button permanently
-    });
-
-    // Show/hide bubble on hover after the first interaction
-    logo.addEventListener('mouseenter', function () {
-        if (!firstInteraction) {
-            showBubble();
-            positionBubble();
+    initMain(){
+        if (this.firstInteraction) {
+            this.load();
         }
-    });
-
-    logo.addEventListener('mouseleave', function () {
-        if (!firstInteraction) {
-            hideBubble();
+        else {
+            this.closeButton.style.display = 'none';
         }
-    });
-});
+        this.setMainEventListeners();
+    }
+}
+
+export { Bubble };
