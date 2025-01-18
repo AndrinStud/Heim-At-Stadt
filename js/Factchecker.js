@@ -29,7 +29,7 @@ class Factchecker {
     }
 
     onPlayerReady(event) {
-        console.log("Player Ready"); // You can omit this to prevent the video starting as soon as it loads.
+        console.log("Player Ready");
     }
 
     onPlayerStateChange(event) {
@@ -38,11 +38,6 @@ class Factchecker {
             this.factInterval = setInterval(this.updateFacts.bind(this), 1000);
         } else {
             clearInterval(this.factInterval);
-            /*
-            if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-                this.clearFacts();
-            }
-            */
         }
     }
 
@@ -84,7 +79,6 @@ class Factchecker {
     }
 
     showFact(type, text) {
-        console.log('showing fact');
         let accountProfilePicture = document.createElement('img');
         accountProfilePicture.src = '../images/' + type + '.png';
         let comment = document.createElement('span');
