@@ -100,22 +100,6 @@ class Factchecker {
         });
 
         let fact = document.createElement('div');
-        let bgColor = 'white';
-        switch (type) {
-            case 'Fakt':
-                bgColor = '#00D072';
-                break;
-            case 'Falschinformation':
-                bgColor = '#ECAE71';
-                break;
-            case 'Nicht überprüfbar':
-                bgColor = '#EEFF00';
-                break;
-            case 'Produktionsinformation':
-                bgColor = '#76E0FF';
-                break;
-        }
-        fact.style.backgroundColor = bgColor;
         fact.appendChild(accountProfilePicture);
         fact.appendChild(comment);
         this.checkArea.appendChild(fact);
