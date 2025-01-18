@@ -1,3 +1,5 @@
+import { Bubble } from './Bubble.js';
+
 class PicturePuzzle {
     constructor() {        
         this.mainElement = document.getElementById('picturePuzzle');
@@ -17,23 +19,28 @@ class PicturePuzzle {
     }
 
     static redirectToDefensiveArchitecture() {
-        window.location.href = 'sites/DefensiveArchitektur.php';
+        //window.location.href = 'sites/DefensiveArchitektur.php';
+        window.location.href = 'sites/UntilPublication.html';
     }
     
     static redirectToSquattedHouse() {
-        window.location.href = 'sites/Hausbesetzung.php';
+        //window.location.href = 'sites/Hausbesetzung.php';
+        window.location.href = 'sites/UntilPublication.html';
     }
     
     static redirectToServicedApartments() {
-        window.location.href = 'sites/ServicedApartments.php';
+        //window.location.href = 'sites/ServicedApartments.php';
+        window.location.href = 'sites/UntilPublication.html';
     }
     
     static redirectToSmartCity() {
-        window.location.href = 'sites/SmartCity.php';
+        //window.location.href = 'sites/SmartCity.php';
+        window.location.href = 'sites/UntilPublication.html';
     }
     
     static redirectToPodcast() {
-        window.open('https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg', '_blank');
+        //window.open('https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg', '_blank');
+        window.location.href = 'sites/UntilPublication.html';
     }
 
     setSize() {
@@ -54,7 +61,25 @@ class PicturePuzzle {
         this.mainElement.style.height = effectiveHeight + 'px';
     }
 
-    createPieces(event) {
+    createDefArcBubble() {
+        let rect = this.mainElement.getBoundingClientRect();
+        let mainDifferenceToTop = rect.top;
+        console.log("mainDifferenceToTop: " + mainDifferenceToTop);
+        let mainDifferenceToLeft = rect.left;
+        console.log("mainDifferenceToLeft: " + mainDifferenceToLeft);
+        let mainWidth = rect.width;
+        console.log("mainWidth: " + mainWidth);
+        let mainHeight = rect.height;
+        console.log("mainHeight: " + mainHeight);
+        // x ist -15%
+        let x = mainDifferenceToLeft + mainWidth * -10;
+        // y ist -15%
+        let y = mainDifferenceToTop + mainHeight * -10;
+        console.log(x, y);
+        return new Bubble(false, '#dev-arc-bubble', x, y);
+    }
+
+    createPieces(event, defArcBubble) {
         var rect = this.mainElement.getBoundingClientRect();
         var x = event.clientX - rect.left; // x position within the element
         var y = event.clientY - rect.top;  // y position within the element
@@ -69,11 +94,13 @@ class PicturePuzzle {
         var isInPodcast = xPercent >= 18 && xPercent <= 34 && yPercent >= 52 && yPercent <= 79;
 
         if (isInDefensiveArchitecture && !this.isHoveringDefensiveArchitecture) {
+            defArcBubble.load();
             this.defensiveArchitecture.classList.add('defensiveArchitectureColored');
             this.isHoveringDefensiveArchitecture = true;
             this.mainElement.addEventListener('click', PicturePuzzle.redirectToDefensiveArchitecture);
             this.mainElement.style.cursor = 'pointer'; // Change cursor to pointer
         } else if (!isInDefensiveArchitecture && this.isHoveringDefensiveArchitecture) {
+            defArcBubble.hide();
             this.defensiveArchitecture.classList.remove('defensiveArchitectureColored');
             this.isHoveringDefensiveArchitecture = false;
             this.mainElement.removeEventListener('click', PicturePuzzle.redirectToDefensiveArchitecture);
@@ -155,8 +182,9 @@ class PicturePuzzle {
     
     static buildPuzzle(puzzle) {
         puzzle.setSize();
+        let defArcBubble = puzzle.createDefArcBubble();
         puzzle.mainElement.addEventListener('mousemove', event => {
-            puzzle.createPieces(event)
+            puzzle.createPieces(event, defArcBubble);
         });
         puzzle.connectNavToPuzzle();
     }

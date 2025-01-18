@@ -1,8 +1,9 @@
 import { Cookie } from "./Cookie.js";
 
 class Bubble {
-    constructor(mainBubble, bubbleX = null, bubbleY = null) {
-        this.bubble = document.querySelector('.speech-bubble');
+    constructor(mainBubble, elementQuery, bubbleX = null, bubbleY = null) {
+        this.mainBubble = mainBubble;
+        this.bubble = document.querySelector(elementQuery);
         this.bubbleX = bubbleX;
         this.bubbleY = bubbleY;
         if (mainBubble) {
@@ -42,9 +43,11 @@ class Bubble {
     }
 
     position() {
-        const logoRect = this.logo.getBoundingClientRect();
-        this.bubbleX = logoRect.left + (logoRect.width / 2) - (this.bubble.offsetWidth / 2);
-        this.bubbleY = logoRect.top - this.bubble.offsetHeight - 50; // 50px above the logo
+        if (this.mainBubble){
+            const logoRect = this.logo.getBoundingClientRect();
+            this.bubbleX = logoRect.left + (logoRect.width / 2) - (this.bubble.offsetWidth / 2);
+            this.bubbleY = logoRect.top - this.bubble.offsetHeight - 50; // 50px above the logo
+        }
 
         // Apply the calculated position
         this.bubble.style.left = `${this.bubbleX}px`;

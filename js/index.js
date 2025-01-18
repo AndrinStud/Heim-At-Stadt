@@ -3,7 +3,7 @@ import { PicturePuzzle } from './PicturePuzzle.js';
 import { DesktopMenu, MobileMenu } from './Navigation.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-    let mainBubble = new Bubble(true);
+    let mainBubble = new Bubble(true, '#main-bubble');
     mainBubble.initMain();
 });
 
