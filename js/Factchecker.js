@@ -48,7 +48,6 @@ class Factchecker {
 
     updateFacts(clear = false) {
         let currentTime = Math.floor(this.player.getCurrentTime()) * 1000; // Convert to milliseconds
-        console.log('Current time: ' + currentTime);
         if (clear)
             this.clearFacts();
         let factsLength = this.facts.length;
@@ -58,20 +57,23 @@ class Factchecker {
 
             if (i < factsLength - 1 && this.facts[i + 1].video_timestamp - fact.video_timestamp == 1) {
                 factCache.push(fact);
-                continue;
             }
-
-            if (factCache.length > 0) {
-                factCache.forEach(factCacheItem => {
-                    fact.comment += factCacheItem.comment;
-                });
-                fact.video_timestamp = factCache[0].video_timestamp;
-                factCache = [];
-            }
-
-            if ((currentTime >= fact.video_timestamp && currentTime < fact.video_timestamp + 1000) || (currentTime >= fact.video_timestamp && clear)) {
-                this.showFact(fact.name, fact.comment);
-                this.currentFacts.push(fact);
+            else {
+                if (factCache.length > 0) {
+                    let addedFactCache = "";
+                    fact.video_timestamp = factCache[0].video_timestamp;
+                    factCache.forEach(factCacheItem => {
+                        addedFactCache += factCacheItem.comment + " ";
+                        this.facts = this.facts.filter(value => value !== factCacheItem);
+                    });
+                    fact.comment = addedFactCache + fact.comment;
+                    factCache = [];
+                }
+    
+                if ((currentTime >= fact.video_timestamp && currentTime < fact.video_timestamp + 1000) || (currentTime >= fact.video_timestamp && clear)) {
+                    this.showFact(fact.name, fact.comment);
+                    this.currentFacts.push(fact);
+                }
             }
         }
     }
