@@ -96,7 +96,7 @@
     <script type="module">
       import { Factchecker } from "../js/Factchecker.js";
       let facts = <?php echo json_encode($facts); ?>;
-      let factchecker = new Factchecker("0aMJ8EGVAEs", facts);
+      new Factchecker("0aMJ8EGVAEs", facts);
     </script>
 </body>
 </html>
