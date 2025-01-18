@@ -4,6 +4,7 @@ class Factchecker {
         this.facts = facts;
         this.player = null;
         this.checkArea = document.getElementById('checkArea');
+        this.currentFacts = [];
         this.loadYoutubeIframeAPI();
         window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this);
     }
@@ -16,7 +17,7 @@ class Factchecker {
     }
 
     onYouTubeIframeAPIReady() {
-        return new YT.Player('player', {
+        this.player = new YT.Player('player', {
           height: '390',
           width: '640',
           videoId: this.videoId,
@@ -28,36 +29,56 @@ class Factchecker {
     }
 
     onPlayerReady(event) {
-        event.target.playVideo(); // You can omit this to prevent the video starting as soon as it loads.
+        console.log("Player Ready"); // You can omit this to prevent the video starting as soon as it loads.
     }
 
     onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING) {
-            console.log('State changed to PLAYING');
-            let factsLength = this.facts.length;
-            let factCache = [];
-            for (let i = 0; i < factsLength; i++) {
-                let fact = this.facts[i];
+            this.updateFacts(true);
+            this.factInterval = setInterval(this.updateFacts.bind(this), 1000);
+        } else {
+            clearInterval(this.factInterval);
+            /*
+            if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+                this.clearFacts();
+            }
+            */
+        }
+    }
 
-                if (i < factsLength - 1 && this.facts[i + 1].video_timestamp - fact.video_timestamp == 1) {
-                    console.log("True for: " + fact.comment);
-                    factCache.push(fact);
-                    continue;
-                }
+    updateFacts(clear = false) {
+        let currentTime = Math.floor(this.player.getCurrentTime()) * 1000; // Convert to milliseconds
+        console.log('Current time: ' + currentTime);
+        if (clear)
+            this.clearFacts();
+        let factsLength = this.facts.length;
+        let factCache = [];
+        for (let i = 0; i < factsLength; i++) {
+            let fact = this.facts[i];
 
-                if (factCache.length > 0) {
-                    factCache.forEach(factCacheItem => {
-                        fact.comment += factCacheItem.comment;
-                    });
-                    fact.video_timestamp = factCache[0].video_timestamp;
-                    factCache = [];
-                }
+            if (i < factsLength - 1 && this.facts[i + 1].video_timestamp - fact.video_timestamp == 1) {
+                factCache.push(fact);
+                continue;
+            }
 
-                setTimeout(() => {
-                    this.showFact(fact.name, fact.comment);
-                }, fact.video_timestamp); // Assuming video_timestamp is in seconds
+            if (factCache.length > 0) {
+                factCache.forEach(factCacheItem => {
+                    fact.comment += factCacheItem.comment;
+                });
+                fact.video_timestamp = factCache[0].video_timestamp;
+                factCache = [];
+            }
+
+            if ((currentTime >= fact.video_timestamp && currentTime < fact.video_timestamp + 1000) || (currentTime >= fact.video_timestamp && clear)) {
+                this.showFact(fact.name, fact.comment);
+                this.currentFacts.push(fact);
             }
         }
+    }
+
+    clearFacts() {
+        this.checkArea.innerHTML = '';
+        this.currentFacts = [];
     }
 
     showFact(type, text) {
