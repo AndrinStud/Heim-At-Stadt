@@ -54,7 +54,6 @@ class Factchecker {
         let factCache = [];
         for (let i = 0; i < factsLength; i++) {
             let fact = this.facts[i];
-
             if (i < factsLength - 1 && this.facts[i + 1].video_timestamp - fact.video_timestamp == 1) {
                 factCache.push(fact);
             }
@@ -65,6 +64,7 @@ class Factchecker {
                     factCache.forEach(factCacheItem => {
                         addedFactCache += factCacheItem.comment + " ";
                         this.facts = this.facts.filter(value => value !== factCacheItem);
+                        factsLength--;
                     });
                     fact.comment = addedFactCache + fact.comment;
                     factCache = [];
