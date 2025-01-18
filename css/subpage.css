@@ -1,41 +1,103 @@
+header {
+    height: unset;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
 #player {
-    width: 62vw;
-    height: calc(62vw * 9 / 16);
+    width: 90vw;
+    height: calc(90vw * 9 / 16);
 }
 
 #factcheck {
-    width: 38vw;
-    height: calc(62vw * 9 / 16);
-    background-color: #d8d8d8;
+    width: 90vw;
+    height: calc((90vw * 9 / 16) * 2);
     float: right;
 }
 
-/*
-#factcheck h3 {
-    height: 3vw;
-    font-size: 2vw;
-    text-align: center;
-}
-*/
-
 .playerAndFactcheck {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #checkArea {
-    /*height: calc(62vw * 9 / 16 - 3vw);*/
-    height: calc(62vw * 9 / 16);
     background-color: black;
     overflow-y: scroll;
+    height: calc((90vw * 9 / 16) * 2);
+}
+
+h1 {
+    font-size: 3vw;
+}
+
+h1 .word {
+    font-size: 2.2vw;
+}
+
+p {
+    font-size: 2.2vw;
 }
 
 #checkArea div {
-    padding: 15px 0 15px 0;
+    padding: 1vw 0 1vw 0;
     color: white;
     display: flex;
-    font-size: 1.2vw;
+    font-size: 2.2vw;
 }
 
+.titleAndLead {
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 1vh;
+}
+
+@media (min-width: 574px) {
+    .titleAndLead {
+        width: unset;
+        margin: unset;
+        margin-bottom: 2vh;
+    }
+
+    #player {
+        width: 62vw;
+        height: calc(62vw * 9 / 16);
+    }    
+
+    .playerAndFactcheck {
+        flex-direction: row;
+        align-items: unset;
+    }
+
+    #factcheck {
+        width: 38vw;
+        height: calc(62vw * 9 / 16);
+    }
+
+    #checkArea {
+        height: calc(62vw * 9 / 16);
+    }
+
+    h1 {
+        font-size: 1.5vw;
+        width: 66vw;
+        margin-left: 3vw;
+    }
+    
+    h1 .word {
+        font-size: 1.2vw;
+    }
+    
+    p {
+        font-size: 1.2vw;
+        width: 80vw;
+        margin-left: 3vw;
+    }
+
+    #checkArea div {
+        font-size: 1.2vw;
+    }
+}
 #checkArea div a {
     color: rgb(0, 191, 255);
 }
@@ -48,23 +110,8 @@
 
 #checkArea span {
     vertical-align: top;
-    padding-left: 10px;
-}
-
-h1 {
-    font-size: 1.5vw;
-    margin-left: 3vw;
-    width: 66vw;
-}
-
-h1 .word {
-    font-size: 1.2vw;
-}
-
-p {
-    font-size: 1.2vw;
-    width: 80vw;
-    margin-left: 3vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
 }
 
 /* Yuri Footer */

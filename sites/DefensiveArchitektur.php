@@ -14,7 +14,6 @@ $facts = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,31 +23,24 @@ $facts = $stmt->fetchAll();
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/subpage.css">
 </head>
-
 <body id="top">
   <header>
     <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
   </header>
   <main>
-    <section>
-      <h1>Verborgene Barrieren: Wie defensive Architektur das Stadtbild der Schweiz prägt <span class="word andrin">von
+    <section class="titleAndLead">
+      <h1>Verborgene Barrieren: Eine abwehrende Stadt <span class="word andrin">von
           Andrin Schärli</span></h1>
       <p>Defensive Architektur, von Skatestoppern bis hin zu ungemütlichen Sitzbänken, beeinflusst den öffentlichen Raum
-        in
-        Schweizer Städten auf subtile, aber tiefgreifende Weise. Diese Massnahmen sollen Sicherheit fördern und
+        in Schweizer Städten auf subtile, aber tiefgreifende Weise. Diese Massnahmen sollen Sicherheit fördern und
         Nutzungskonflikte entschärfen, schränken jedoch gleichzeitig die Zugänglichkeit und Aneignung öffentlicher Orte
-        ein.
-        Entdecken Sie, wie diese Architektur gestaltet wird, welche Debatten sie auslöst und welche gesellschaftlichen
-        Ziele
-        damit verfolgt werden - von klassischer Musik am Hauptbahnhof bis hin zu Sperren, die Liegen oder Skaten
-        verhindern.
-        Ein Blick auf die Grenzen zwischen Funktionalität und sozialer Exklusion.</p>
-      <br />
+        ein. Entdecken Sie, wie diese Architektur gestaltet wird, welche Debatten sie auslöst und welche
+        gesellschaftlichen Ziele damit verfolgt werden - von klassischer Musik am Hauptbahnhof bis hin zu Sperren, die
+        Liegen oder Skaten verhindern. Ein Blick auf die Grenzen zwischen Funktionalität und sozialer Exklusion.</p>
     </section>
     <section class="playerAndFactcheck">
       <aside id="player"></aside>
       <article id="factcheck">
-        <!--<h3>Faktencheck</h3>-->
         <div id="checkArea"></div>
       </article>
     </section>
