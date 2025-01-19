@@ -1,7 +1,13 @@
+body {
+    width: 100vw;
+}
+
+.speech-bubble {
+    display: none;
+}
+
 #menu {
     position: fixed;
-    width: 100%;
-    height: 5vh;
     top: -5vh;
     transition: top 0.5s ease-in-out;
 }
@@ -10,107 +16,7 @@
     top: 0;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
-.logo {
-    height: 5vh;
-}
-
-#hamburgerIcon {
-    color: #004027;
-    font-size: 5vh;
-}
-
-.logoAndMobileNav div {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5vh;
-}
-
-#mobileNavBottom {
-    flex-direction: column;
-    background-color: #004027;
-    display: none;
-}
-
-#mobileNavBottom a:not(.someMobileNav a) {
-    text-align: center;
-    color: white;
-    font-family: 'proxima-nova', sans-serif;
-    text-transform: uppercase;
-    font-size: 3.5vh;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-bottom: 0.1vh solid white;
-    font-weight: bold;
-}
-
-#mobileNavBottom img {
-    width: 20%;
-}
-
-.someMobileNav {
-    justify-content: space-around !important;
-}
-
-.menuBlendInLi ul:hover {
-    cursor: pointer;
-}
-
-#toggleMenu li {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid white;
-    transition: transform 0.5s ease-in-out;
-    margin: 0 auto;
-    margin-top: 0.8vh;
-    margin-bottom: 0.8vh;
-}
-
-#toggleMenu.open li {
-    transform: rotate(180deg);
-}
-
-nav {
-    display: none;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    background-color: #004027;
-    height: 3.2vh;
-    border-bottom: 0.5vh solid #00D072;
-    padding-top: 0.7vh;
-}
-
-nav ul li {
-    color: white;
-    font-family: 'proxima-nova', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.6vh;
-    font-weight: bold;
-}
-
-.speech-bubble {
-    display: none;
-}
-
 @media (min-width: 574px) {
-    nav {
-        display: block;
-    }
-
-    .logoAndMobileNav {
-        display: block;
-    }
-
     .logo {
         position: fixed;
         width: 20%;
@@ -120,99 +26,84 @@ nav ul li {
         height: unset;
     }
 
-    #hamburgerIcon {
-        display: none;
+    .speech-bubble {
+        position: absolute;
+        max-width: 600px;
+        background: #000;
+        color: #fff;
+        box-sizing: border-box;
+        border: 0.5vh solid #00D072;
+        text-align: left;
+        line-height: 1.5;
+        z-index: 1;
+        width: 75%;
+        padding: 20px;
     }
 
-    /* Speech Bubble START-------------------------------------------------------------------- */
-
-        .speech-bubble {
-            position: absolute;
-            max-width: 600px;
-            background: #000;
-            color: #fff;
-            box-sizing: border-box;
-            border: 0.5vh solid #00D072;
-            text-align: left;
-            line-height: 1.5;
-            z-index: 1;
-            width: 75%;
-            padding: 20px;
-        }
-
-        .speech-arrow {
-            position: absolute;
-            left: 50%;
-            bottom: -0.4vh; /* Fine-tune to perfectly connect the arrow */
-        }
-
-        .speech-arrow::before {
-            content: "";
-            position: absolute;
-            transform: translateX(-50%);
-            border-left: calc(30px + 0.5vh) solid transparent;
-            border-right: calc(30px + 0.5vh) solid transparent;
-            border-top: calc(40px + 0.5vh) solid #00D072; /* Adjust arrow size */
-        }
-
-        .speech-arrow::after {
-            content: "";
-            position: absolute;
-            transform: translateX(-50%);
-            top: -0.5vh;
-            border-left: 30px solid transparent;
-            border-right: 30px solid transparent;
-            border-top: 40px solid #000000; /* Adjust arrow size */
-        }
-
-        .speech-content {
-            position: relative;
-        }
-
-        .speech-content h3 {
-            margin-bottom: 10px;
-            font-size: 1.2em;
-            text-transform: uppercase;
-        }
-
-        .speech-content p {
-            margin-bottom: 10px;
-            font-size: 0.9em;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            line-height: 1;
-            cursor: pointer;
-        }
-
-    /* Speech Bubble END------------------------------------------------------------------------- */
-}
-
-@media (min-width: 716px) {
-    nav ul {
-        height: 3.8vh;
+    .speech-bubble.not-main .speech-arrow::before {
+        border-left: var(--arrow-before-border-left);
+        border-right: var(--arrow-before-border-right);
+        border-top: var(--arrow-before-border-top);
     }
 
-    nav ul li {
-        font-size: 2vh;
+    .speech-bubble.not-main .speech-arrow::after {
+        border-left: var(--arrow-after-border-left);
+        border-right: var(--arrow-after-border-right);
+        border-top: var(--arrow-after-border-top);
+        top: var(--arrow-after-top);
     }
-}
 
-.menuBlendInLi ul {
-    display: block;
-    height: auto;
-    border-left: 0.5vh solid #00D072;
-    border-right: 0.5vh solid #00D072;
-    margin-top: 0.8vh;
-    text-align: center;
-    width: 3vw;
+    .speech-arrow {
+        position: absolute;
+        left: 50%;
+        bottom: -0.4vh; /* Fine-tune to perfectly connect the arrow */
+    }
+
+    .speech-arrow::before {
+        content: "";
+        position: absolute;
+        transform: translateX(-50%);
+        border-left: calc(30px + 0.5vh) solid transparent;
+        border-right: calc(30px + 0.5vh) solid transparent;
+        border-top: calc(40px + 0.5vh) solid #00D072; /* Adjust arrow size */
+    }
+
+    .speech-arrow::after {
+        content: "";
+        position: absolute;
+        transform: translateX(-50%);
+        top: -0.5vh;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-top: 40px solid #000000; /* Adjust arrow size */
+    }
+
+    .speech-content {
+        position: relative;
+    }
+
+    .speech-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+    }
+
+    .speech-content p {
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 1.5em;
+        line-height: 1;
+        cursor: pointer;
+    }
 }
 
 .more {

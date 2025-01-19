@@ -34,6 +34,13 @@ ul {
     padding-left: 1%;
 }
 
+header img {
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 header img, .indexButton {
     width: 80%;
 }
