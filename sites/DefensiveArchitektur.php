@@ -24,12 +24,32 @@ $facts = $stmt->fetchAll();
   <link rel="stylesheet" href="../css/subpage.css">
 </head>
 <body id="top">
-  <header>
-    <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
-  </header>
+  <header id="menu">
+    <nav>
+      <ul>
+        <a href="https://heimatstadt.info/">
+          <li>
+            <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
+          </li>
+        </a>
+        <a href="ServicedApartments.php">
+          <li>Serviced Apartments</li>
+        </a>
+        <a href="Hausbesetzung.php">
+          <li>Hausbesetzung</li>
+        </a>
+        <a href="SmartCity.php">
+          <li>Smart City</li>
+        </a>
+        <a href="https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg" target="_blank">
+          <li>Podcast</li>
+        </a>
+      </ul>
+    </nav>
+  </heade>
   <main>
     <section class="titleAndLead">
-      <h1>Verborgene Barrieren: Eine abwehrende Stadt <span class="word andrin">von
+      <h1>Defensive Architektur: Verborgene Barrieren in der Stadt <span class="word andrin">von
           Andrin Schärli</span></h1>
       <p>Defensive Architektur, von Skatestoppern bis hin zu ungemütlichen Sitzbänken, beeinflusst den öffentlichen Raum
         in Schweizer Städten auf subtile, aber tiefgreifende Weise. Diese Massnahmen sollen Sicherheit fördern und

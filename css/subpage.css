@@ -1,7 +1,10 @@
 header {
     height: unset;
-    margin-top: 1vh;
     margin-bottom: 1vh;
+}
+
+header img {
+    height: 3vh;
 }
 
 #player {

@@ -24,9 +24,30 @@ $facts = $stmt->fetchAll();
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/subpage.css">
 </head>
+
 <body id="top">
-  <header>
-    <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
+  <header id="menu">
+    <nav>
+      <ul>
+        <a href="https://heimatstadt.info/">
+          <li>
+            <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
+          </li>
+        </a>
+        <a href="ServicedApartments.php">
+          <li>Serviced Apartments</li>
+        </a>
+        <a href="SmartCity.php">
+          <li>Smart City</li>
+        </a>
+        <a href="DefensiveArchitektur.php">
+          <li>Defensive Architektur</li>
+        </a>
+        <a href="https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg" target="_blank">
+          <li>Podcast</li>
+        </a>
+      </ul>
+    </nav>
   </header>
   <main>
     <section class="titleAndLead">
