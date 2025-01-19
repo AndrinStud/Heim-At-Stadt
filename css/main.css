@@ -25,12 +25,6 @@ header img {
     margin-right: auto;
 }
 
-footer {
-    width: 100%;
-    position: absolute;
-    bottom: 10px;
-}
-
 .indexButton {
     display: block;
     background-color: #004027;
@@ -51,4 +45,502 @@ footer {
 
 h1, h3, span, p {
     font-family: 'proxima-nova', sans-serif;
+}
+
+.sub-col a {
+    display: inline-block;
+    color: white; /* Farbe der Icons */
+    font-size: 24px; /* Größe der Icons */
+    margin: 0 10px; /* Abstand zwischen den Icons */
+    transition: transform 0.2s ease, color 0.2s ease; /* Hover-Animation */
+}
+
+.footer {
+    background: #000;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5vh 5vw 5vh 5vw;
+
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    gap: 20px; /* Platz zwischen den Elementen */
+    align-items: center; /* Zentriert die Inhalte vertikal */
+    justify-content: center; /* Zentriert die Inhalte horizontal */
+    width: 100%; /* Nutzt den gesamten verfügbaren Platz */
+  }
+  
+  .footer-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei Spalten pro Zeile */
+    gap: 20px;
+  }
+
+.footer-row.bottom-row {
+    align-items: center;
+    text-align: center; /* Zentriert den Text */
+    border-top: 1.5px solid #fff; /* Grüner Strich oben */
+    border-bottom: 1.5px solid #fff; /* Grüner Strich unten */
+    margin-top: 30px;;
+}
+
+.footer-row.bottom-row .footer-col a {
+    text-decoration: underline; /* Underline the text */
+    text-decoration-color: white; /* White underline */
+    text-decoration-thickness: 1px; /* Thickness of the underline */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.col-with-subgrid .subgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Vier Spalten */
+    justify-content: center; /* Zentriert die Icons */
+    align-items: center;
+}
+
+.col-with-subgrid .subgrid .sub-col {
+    border-left: 1.5px solid #fff;
+}
+
+#last {
+border-right: 1.5px solid #fff; /* Grüner Rahmen rechts */
+}
+/*ZEILE 2 FERTIG */
+  
+.footer-col {
+    /* Optional: Styling für einzelne Spalten */
+  }
+
+.rotator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .oben {
+    text-align: right; /* Text rechtsbündig */
+    margin: 0; /* Entfernt Außenabstände */
+}
+
+.oben a {
+    display: inline-block;
+    text-decoration: underline; /* Unterstreichen */
+    text-decoration-color: white; /* Unterstreichung in Weiß */
+    text-decoration-thickness: 1px; /* Dicke der Linie */
+    color: white;
+    border: 2px solid #00D072;
+    padding: 5px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Verhindert Zeilenumbruch */
+}
+  
+  .logo img {
+    width: 170px;
+  }
+
+  .sub-col img{
+    width: 30px;
+    padding: 10px 0px;
+  }
+
+  /* rotating text */
+
+  .rotating-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    transform: translateX(-80px);
+    text-transform: uppercase;
+  
+    p {
+      display: inline-flex;
+      margin: 0;
+      vertical-align: top;
+  
+      .word {
+        position: absolute;
+        display: flex;
+        opacity: 0;
+        text-transform: uppercase;
+  
+        .letter {
+          transform-origin: center center 25px;
+  
+          &.out {
+            transform: rotateX(90deg);
+            transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+          }
+          &.in {
+            transition: 0.38s ease;
+          }
+          &.behind {
+            transform: rotateX(-90deg);
+          }
+        }
+      }
+    }
+  }
+
+  ______
+
+
+  .heimatstadt {
+    color: #e74c3c;
+  }
+  
+  .elina {
+    color: #8e44ad;
+  }
+  
+  .patrick {
+    color: #3498db;
+  }
+  
+  .yuri {
+    color: #2ecc71;
+  }
+  
+  .andrea {
+    color: #f1c40f;
+  }
+
+  .jermyn {
+    color: #f1c40f;
+  }
+
+  .andrin {
+    color: #f1c40f;
+  }
+
+/* Layout-Anpassung für iPhones (Portrait-Modus) */
+@media screen and (max-width: 768px) {
+
+    .rotator {
+        margin-top: 50px; /* Optionaler Abstand */
+        margin-left: 70px;
+        margin-bottom: 10px;
+    }
+
+.sub-col img{
+    width: 20px;
+    padding: 10px 10px;
+    }
+
+.rotating-text{
+    font-size: 16px;
+}
+    
+.logo img{
+    padding-top: 6px;
+}
+
+    .oben a{
+        font-size: 14px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-rows: auto auto auto; /* Drei Zeilen */
+      grid-template-columns: 1fr; /* Eine Spalte pro Zeile */
+      gap: 5px; /* Abstand zwischen den Zeilen */
+    }
+  
+    /* Erste Zeile: Logo links, "Nach oben" rechts */
+    .footer-row.top-row {
+      display: grid;
+      grid-template-columns: auto auto; /* Zwei Spalten */
+      align-items: center; /* Vertikal ausrichten */
+      gap: 0px; /* Abstand zwischen Logo und Nach oben */
+    }
+  
+    /* Logo bleibt links */
+    .footer-row.top-row .logo {
+      justify-self: start; /* Am Anfang der Zeile ausrichten */
+    }
+  
+    /* "Nach oben" bleibt rechts */
+    .footer-row.top-row .oben {
+      justify-self: end; /* Am Ende der Zeile ausrichten */
+    }
+  
+    /* Rotating Text (wird auf Zeile 3 verschoben) */
+    .footer-row.top-row .rotator {
+      grid-column: 1 / -1; /* Vollständige Breite */
+      grid-row: 2; /* Verschiebt in eine neue Zeile */
+      text-align: center; /* Zentriert den Text */
+    }
+  
+    /* Zweite Zeile (ursprüngliches Layout bleibt unverändert) */
+  .footer-row.bottom-row {
+    grid-row: 3; /* Bleibt in der dritten Zeile */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei Spalten */
+    gap: 0px; /* Abstand zwischen den Spalten */
+    align-items: center; /* Vertikal zentrieren */
+    font-size: 14px;
+  }
+
+  /* Zentriert "Impressum" und "Über uns" */
+  .footer-row.bottom-row .footer-col {
+    text-align: center; /* Horizontale Zentrierung */
+    display: flex; /* Flexbox aktivieren */
+    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center; /* Vertikale Zentrierung */
+  }
+
+  .footer-row.bottom-row .subgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Vier Spalten für Social Media Icons */
+    gap: 0px;
+  }
+.footer-inner{
+    margin-bottom: 30px;
+}
+}
+
+/* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
+
+.navbar_mobile {
+  display: flex; /* Enable Flexbox */
+  justify-content: space-around; /* Distribute space between the items */
+  align-items: center; /* Aligns the items vertically center */
+  background-color: transparent; /* Light grey background */
+  z-index: 9999; /* Places the navbar on top of other elements */
+  position: sticky; /* Makes the navbar stick to the top of the page */
+  top: 0; /* Places the navbar at the top of the page */
+  background-color: #0d0d0de1; /* Background color of the navbar */
+  -webkit-backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
+  backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
+}
+
+.navbar_mobile img {
+  width: 180px; /* Width of the logo */
+}
+
+.menu {
+  list-style-type: none; /* Removes bullet points from the entire list */
+}
+
+.list-items a {
+  text-decoration: none; /* Removes underline from links */
+  color: #F5F5F7; /* Dark grey color for text */
+  font-family: "Roboto", sans-serif;
+  font-weight: 700; /* Bold font weight */
+  font-size: 18px; /* Font size for menu items */
+}
+
+#navigation {
+  height: 100px; /* Adjust height as needed */
+  display: flex; /* Enable Flexbox */
+  text-align: center; /* Aligns the text in the center */
+  align-items: center; /* This aligns the child elements (ul) vertically center */
+}
+/* MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR */
+
+.mobile-nav {
+  display: block; /* Display the mobile menu */
+  position: fixed; /* Fix the menu to the viewport */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  z-index: 999; /* Places the menu below the navbar */
+  background-color: #0D0D0D; /* Background color of the menu */
+  padding-top: 120px; /* Adjust padding as needed */
+  top: -200vh; /* Start from above the viewport */
+  left: 0; /* Align to the left */
+  transition: top 0.4s ease-in-out; /* Add a transition on the 'top' property */
+}
+
+.mobile-nav.open {
+  top: 0vh; /* Move to the top of the viewport when the 'open' class is added */
+}
+
+.mobile-nav.close {
+  display: none; /* Hide the menu when the 'close' class is added */
+}
+
+.mobile-nav ul {
+  list-style-type: none; /* Removes bullet points from the entire list */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.mobile-nav a {
+  display: block;
+  margin: auto; /* This will center the a tags */
+  text-align: center; /* Aligns the text in the center */
+  padding: 0px 16px; /* Adjust padding as needed */
+  text-decoration: none; /* Removes underline from links */
+  color: #F5F5F7; /* Dark grey color for text */
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700; /* Bold font weight */
+  font-size: 25px; /* Font size for menu items */
+  padding: 20px;  /* Adjust padding as necessary, but keep it symmetrical */
+  text-transform: uppercase;
+}
+
+.menu_small a{
+  display: block;
+  margin: auto; /* This will center the a tags */
+  text-align: center; /* Aligns the text in the center */
+  padding: 12px 16px; /* Adjust padding as needed */
+  text-decoration: none; /* Removes underline from links */
+  color: #F5F5F7; /* Dark grey color for text */
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700; /* Bold font weight */
+  font-size: 16px; /* Font size for menu items */
+  padding: 10px;  /* Adjust padding as necessary, but keep it symmetrical */
+  text-transform: uppercase;
+}
+
+#mobile-footer {
+  border-top: none;
+  margin-top: 30px;
+}
+
+#mobile-social-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#mobile-social {
+  width: 30px;
+  height: 30px;
+}
+
+.social-icon{
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger-menu {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Changes cursor to pointer */
+  display: flex; /* Enable Flexbox */
+  padding: 0; /* Removes default padding */
+}
+
+.line {
+  fill: none; /* Removes fill color */
+  stroke: #00D072; /* White stroke color */
+  stroke-width: 6; /* Stroke width */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1); /* Add a transition effect */
+}
+.line1 {
+  stroke-dasharray: 60 207; /* Stroke dash array */
+  stroke-width: 6; /* Stroke width */
+}
+.line2 {
+  stroke-dasharray: 60 60; 
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+
+media screen and (max-width: 768px) {
+
+    .rotator {
+        margin-top: 50px; /* Optionaler Abstand */
+        margin-left: 70px;
+        margin-bottom: 10px;
+    }
+
+.sub-col img{
+    width: 20px;
+    padding: 10px 10px;
+    }
+
+.rotating-text{
+    font-size: 16px;
+}
+
+.logo img{
+    padding-top: 6px;
+}
+
+    .oben a{
+        font-size: 14px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-rows: auto auto auto; /* Drei Zeilen */
+      grid-template-columns: 1fr; /* Eine Spalte pro Zeile */
+      gap: 5px; /* Abstand zwischen den Zeilen */
+    }
+
+    /* Erste Zeile: Logo links, "Nach oben" rechts */
+    .footer-row.top-row {
+      display: grid;
+      grid-template-columns: auto auto; /* Zwei Spalten */
+      align-items: center; /* Vertikal ausrichten */
+      gap: 0px; /* Abstand zwischen Logo und Nach oben */
+    }
+
+    /* Logo bleibt links */
+    .footer-row.top-row .logo {
+      justify-self: start; /* Am Anfang der Zeile ausrichten */
+    }
+
+    /* "Nach oben" bleibt rechts */
+    .footer-row.top-row .oben {
+      justify-self: end; /* Am Ende der Zeile ausrichten */
+    }
+
+    /* Rotating Text (wird auf Zeile 3 verschoben) */
+    .footer-row.top-row .rotator {
+      grid-column: 1 / -1; /* Vollständige Breite */
+      grid-row: 2; /* Verschiebt in eine neue Zeile */
+      text-align: center; /* Zentriert den Text */
+    }
+
+    /* Zweite Zeile (ursprüngliches Layout bleibt unverändert) */
+  .footer-row.bottom-row {
+    grid-row: 3; /* Bleibt in der dritten Zeile */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei Spalten */
+    gap: 0px; /* Abstand zwischen den Spalten */
+    align-items: center; /* Vertikal zentrieren */
+    font-size: 14px;
+  }
+
+  /* Zentriert "Impressum" und "Über uns" */
+  .footer-row.bottom-row .footer-col {
+    text-align: center; /* Horizontale Zentrierung */
+    display: flex; /* Flexbox aktivieren */
+    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center; /* Vertikale Zentrierung */
+  }
+
+  .footer-row.bottom-row .subgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Vier Spalten für Social Media Icons */
+    gap: 0px;
+  }
+.footer-inner{
+    margin-bottom: 30px;
+}
 }
