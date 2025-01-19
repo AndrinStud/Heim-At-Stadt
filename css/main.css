@@ -15,12 +15,6 @@ main {
     margin-bottom: 2vh;
 }
 
-footer {
-    width: 100%;
-    position: absolute;
-    bottom: 10px;
-}
-
 .indexButton {
     display: block;
     background-color: #004027;
@@ -39,19 +33,322 @@ footer {
     font-weight: bold;
 }
 
-h1, h3, span, p {
+h1,
+h3,
+span,
+p {
     font-family: 'proxima-nova', sans-serif;
 }
 
+.sub-col a {
+    display: inline-block;
+    color: white;
+    /* Farbe der Icons */
+    font-size: 24px;
+    /* Größe der Icons */
+    margin: 0 10px;
+    /* Abstand zwischen den Icons */
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Hover-Animation */
+}
 
-/* Index Übernahme START------------------------------------------------------------------------- */
+.footer {
+    background: #000;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5vh 5vw 5vh 5vw;
+
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    /* Platz zwischen den Elementen */
+    align-items: center;
+    /* Zentriert die Inhalte vertikal */
+    justify-content: center;
+    /* Zentriert die Inhalte horizontal */
+    width: 100%;
+    /* Nutzt den gesamten verfügbaren Platz */
+}
+
+.footer-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Drei Spalten pro Zeile */
+    gap: 20px;
+}
+
+.footer-row.bottom-row {
+    align-items: center;
+    text-align: center;
+    /* Zentriert den Text */
+    border-top: 1.5px solid #fff;
+    /* Grüner Strich oben */
+    border-bottom: 1.5px solid #fff;
+    /* Grüner Strich unten */
+    margin-top: 30px;
+    ;
+}
+
+.footer-row.bottom-row .footer-col a {
+    text-decoration: underline;
+    /* Underline the text */
+    text-decoration-color: white;
+    /* White underline */
+    text-decoration-thickness: 1px;
+    /* Thickness of the underline */
+    color: white;
+    /* White text */
+    font-weight: bold;
+    /* Bold text */
+    transition: color 0.3s ease;
+    /* Smooth transition on hover */
+}
+
+.col-with-subgrid .subgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Vier Spalten */
+    justify-content: center;
+    /* Zentriert die Icons */
+    align-items: center;
+}
+
+.col-with-subgrid .subgrid .sub-col {
+    border-left: 1.5px solid #fff;
+}
+
+#last {
+    border-right: 1.5px solid #fff;
+    /* Grüner Rahmen rechts */
+}
+
+/*ZEILE 2 FERTIG */
+
+.rotator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oben {
+    text-align: right;
+    /* Text rechtsbündig */
+    margin: 0;
+    /* Entfernt Außenabstände */
+}
+
+.oben a {
+    display: inline-block;
+    text-decoration: underline;
+    /* Unterstreichen */
+    text-decoration-color: white;
+    /* Unterstreichung in Weiß */
+    text-decoration-thickness: 1px;
+    /* Dicke der Linie */
+    color: white;
+    border: 2px solid #00D072;
+    padding: 5px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    /* Verhindert Zeilenumbruch */
+}
+
+.logo img {
+    width: 170px;
+}
+
+.sub-col img {
+    width: 30px;
+    padding: 10px 0px;
+}
+
+/* rotating text */
+
+.rotating-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    transform: translateX(-80px);
+    text-transform: uppercase;
+}
+
+.rotating-text p {
+    display: inline-flex;
+    margin: 0;
+    vertical-align: top;
+}
+
+.rotating-text p .word {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    text-transform: uppercase;
+}
+
+.rotating-text p .word .letter {
+    transform-origin: center center 25px;
+}
+
+.rotating-text p .word .letter.out {
+    transform: rotateX(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+}
+
+.rotating-text p .word .letter.in {
+    transition: 0.38s ease;
+}
+
+.rotating-text p .word .letter.behind {
+    transform: rotateX(-90deg);
+}
+
+______ .heimatstadt {
+    color: #e74c3c;
+}
+
+.elina {
+    color: #8e44ad;
+}
+
+.patrick {
+    color: #3498db;
+}
+
+.yuri {
+    color: #2ecc71;
+}
+
+.andrea {
+    color: #f1c40f;
+}
+
+.jermyn {
+    color: #f1c40f;
+}
+
+.andrin {
+    color: #f1c40f;
+}
+
+/* Layout-Anpassung für iPhones (Portrait-Modus) */
+@media screen and (max-width: 768px) {
+
+    .rotator {
+        margin-top: 50px;
+        /* Optionaler Abstand */
+        margin-left: 70px;
+        margin-bottom: 10px;
+    }
+
+    .sub-col img {
+        width: 20px;
+        padding: 10px 10px;
+    }
+
+    .rotating-text {
+        font-size: 16px;
+    }
+
+    .logo img {
+        padding-top: 6px;
+    }
+
+    .oben a {
+        font-size: 14px;
+    }
+
+    .footer-inner {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        /* Drei Zeilen */
+        grid-template-columns: 1fr;
+        /* Eine Spalte pro Zeile */
+        gap: 5px;
+        /* Abstand zwischen den Zeilen */
+    }
+
+    /* Erste Zeile: Logo links, "Nach oben" rechts */
+    .footer-row.top-row {
+        display: grid;
+        grid-template-columns: auto auto;
+        /* Zwei Spalten */
+        align-items: center;
+        /* Vertikal ausrichten */
+        gap: 0px;
+        /* Abstand zwischen Logo und Nach oben */
+    }
+
+    /* Logo bleibt links */
+    .footer-row.top-row .logo {
+        justify-self: start;
+        /* Am Anfang der Zeile ausrichten */
+    }
+
+    /* "Nach oben" bleibt rechts */
+    .footer-row.top-row .oben {
+        justify-self: end;
+        /* Am Ende der Zeile ausrichten */
+    }
+
+    /* Rotating Text (wird auf Zeile 3 verschoben) */
+    .footer-row.top-row .rotator {
+        grid-column: 1 / -1;
+        /* Vollständige Breite */
+        grid-row: 2;
+        /* Verschiebt in eine neue Zeile */
+        text-align: center;
+        /* Zentriert den Text */
+    }
+
+    /* Zweite Zeile (ursprüngliches Layout bleibt unverändert) */
+    .footer-row.bottom-row {
+        grid-row: 3;
+        /* Bleibt in der dritten Zeile */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Drei Spalten */
+        gap: 0px;
+        /* Abstand zwischen den Spalten */
+        align-items: center;
+        /* Vertikal zentrieren */
+        font-size: 14px;
+    }
+
+    /* Zentriert "Impressum" und "Über uns" */
+    .footer-row.bottom-row .footer-col {
+        text-align: center;
+        /* Horizontale Zentrierung */
+        display: flex;
+        /* Flexbox aktivieren */
+        justify-content: center;
+        /* Horizontale Zentrierung */
+        align-items: center;
+        /* Vertikale Zentrierung */
+    }
+
+    .footer-row.bottom-row .subgrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* Vier Spalten für Social Media Icons */
+        gap: 0px;
+    }
+
+    .footer-inner {
+        margin-bottom: 30px;
+    }
+}
 
 #menu {
     width: 100%;
     height: 5vh;
 }
 
-nav a, .mobileNavBottom a {
+nav a,
+.mobileNavBottom a {
     text-decoration: none;
     color: white;
 }
