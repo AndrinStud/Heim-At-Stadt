@@ -140,6 +140,19 @@ nav ul li {
             padding: 20px;
         }
 
+        .speech-bubble.not-main .speech-arrow::before {
+            border-left: var(--arrow-before-border-left);
+            border-right: var(--arrow-before-border-right);
+            border-top: var(--arrow-before-border-top);
+        }
+
+        .speech-bubble.not-main .speech-arrow::after {
+            border-left: var(--arrow-after-border-left);
+            border-right: var(--arrow-after-border-right);
+            border-top: var(--arrow-after-border-top);
+            top: var(--arrow-after-top);
+        }
+
         .speech-arrow {
             position: absolute;
             left: 50%;
