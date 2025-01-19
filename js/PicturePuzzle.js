@@ -64,22 +64,59 @@ class PicturePuzzle {
     createDefArcBubble() {
         let rect = this.mainElement.getBoundingClientRect();
         let mainDifferenceToTop = rect.top;
-        console.log("mainDifferenceToTop: " + mainDifferenceToTop);
         let mainDifferenceToLeft = rect.left;
-        console.log("mainDifferenceToLeft: " + mainDifferenceToLeft);
         let mainWidth = rect.width;
-        console.log("mainWidth: " + mainWidth);
         let mainHeight = rect.height;
-        console.log("mainHeight: " + mainHeight);
-        // x ist -15%
-        let x = mainDifferenceToLeft + mainWidth * -10;
-        // y ist -15%
-        let y = mainDifferenceToTop + mainHeight * -10;
-        console.log(x, y);
-        return new Bubble(false, '#dev-arc-bubble', x, y);
+        let x = mainDifferenceToLeft + mainWidth * 0.1;
+        let y = mainDifferenceToTop + mainHeight * 0.35;
+        return new Bubble(false, '#dev-arc-bubble', x, y, mainWidth, mainHeight, true);
     }
 
-    createPieces(event, defArcBubble) {
+    createSerAptBubble() {
+        let rect = this.mainElement.getBoundingClientRect();
+        let mainDifferenceToTop = rect.top;
+        let mainDifferenceToLeft = rect.left;
+        let mainWidth = rect.width;
+        let mainHeight = rect.height;
+        let x = mainDifferenceToLeft + mainWidth * 0.3;
+        let y = mainDifferenceToTop + mainHeight * 0.33;
+        return new Bubble(false, '#ser-apt-bubble', x, y, mainWidth, mainHeight, true);
+    }
+
+    createSmaCitBubble() {
+        let rect = this.mainElement.getBoundingClientRect();
+        let mainDifferenceToTop = rect.top;
+        let mainDifferenceToLeft = rect.left;
+        let mainWidth = rect.width;
+        let mainHeight = rect.height;
+        let x = mainDifferenceToLeft + mainWidth * 0.65;
+        let y = mainDifferenceToTop + mainHeight * 0.3;
+        return new Bubble(false, '#sma-cit-bubble', x, y, mainWidth, mainHeight, true);
+    }
+
+    createPodcastBubble() {
+        let rect = this.mainElement.getBoundingClientRect();
+        let mainDifferenceToTop = rect.top;
+        let mainDifferenceToLeft = rect.left;
+        let mainWidth = rect.width;
+        let mainHeight = rect.height;
+        let x = mainDifferenceToLeft + mainWidth * 0.13;
+        let y = mainDifferenceToTop + mainHeight * 0.2;
+        return new Bubble(false, '#podcast-bubble', x, y, mainWidth, mainHeight);
+    }
+
+    createSquHouBubble() {
+        let rect = this.mainElement.getBoundingClientRect();
+        let mainDifferenceToTop = rect.top;
+        let mainDifferenceToLeft = rect.left;
+        let mainWidth = rect.width;
+        let mainHeight = rect.height;
+        let x = mainDifferenceToLeft + mainWidth * 0.52;
+        let y = mainDifferenceToTop + mainHeight * 0.08;
+        return new Bubble(false, '#squ-hou-bubble', x, y, mainWidth, mainHeight);
+    }
+
+    createPieces(event, bubbles) {
         var rect = this.mainElement.getBoundingClientRect();
         var x = event.clientX - rect.left; // x position within the element
         var y = event.clientY - rect.top;  // y position within the element
@@ -94,13 +131,13 @@ class PicturePuzzle {
         var isInPodcast = xPercent >= 18 && xPercent <= 34 && yPercent >= 52 && yPercent <= 79;
 
         if (isInDefensiveArchitecture && !this.isHoveringDefensiveArchitecture) {
-            defArcBubble.load();
+            bubbles.defArcBubble.load();
             this.defensiveArchitecture.classList.add('defensiveArchitectureColored');
             this.isHoveringDefensiveArchitecture = true;
             this.mainElement.addEventListener('click', PicturePuzzle.redirectToDefensiveArchitecture);
             this.mainElement.style.cursor = 'pointer'; // Change cursor to pointer
         } else if (!isInDefensiveArchitecture && this.isHoveringDefensiveArchitecture) {
-            defArcBubble.hide();
+            bubbles.defArcBubble.hide();
             this.defensiveArchitecture.classList.remove('defensiveArchitectureColored');
             this.isHoveringDefensiveArchitecture = false;
             this.mainElement.removeEventListener('click', PicturePuzzle.redirectToDefensiveArchitecture);
@@ -108,11 +145,13 @@ class PicturePuzzle {
         }
 
         if (isInSquattedHouse && !this.isHoveringSquattedHouse) {
+            bubbles.squHouBubble.load();
             this.squattedHouse.classList.add('squattedHouseColored');
             this.isHoveringSquattedHouse = true;
             this.mainElement.addEventListener('click', PicturePuzzle.redirectToSquattedHouse);
             this.mainElement.style.cursor = 'pointer'; // Change cursor to pointer
         } else if (!isInSquattedHouse && this.isHoveringSquattedHouse) {
+            bubbles.squHouBubble.hide();
             this.squattedHouse.classList.remove('squattedHouseColored');
             this.isHoveringSquattedHouse = false;
             this.mainElement.removeEventListener('click', PicturePuzzle.redirectToSquattedHouse);
@@ -120,11 +159,13 @@ class PicturePuzzle {
         }
 
         if (isInServicedApartments && !this.isHoveringServicedApartments) {
+            bubbles.serAptBubble.load();
             this.servicedApartments.classList.add('servicedApartmentsColored');
             this.isHoveringServicedApartments = true;
             this.mainElement.addEventListener('click', PicturePuzzle.redirectToServicedApartments);
             this.mainElement.style.cursor = 'pointer';
         } else if (!isInServicedApartments && this.isHoveringServicedApartments) {
+            bubbles.serAptBubble.hide();
             this.servicedApartments.classList.remove('servicedApartmentsColored');
             this.isHoveringServicedApartments = false;
             this.mainElement.removeEventListener('click', PicturePuzzle.redirectToServicedApartments);
@@ -132,11 +173,13 @@ class PicturePuzzle {
         }
 
         if (isInSmartCity && !this.isHoveringSmartCity) {
+            bubbles.smaCitBubble.load();
             this.smartCity.classList.add('smartCityColored');
             this.isHoveringSmartCity = true;
             this.mainElement.addEventListener('click', PicturePuzzle.redirectToSmartCity);
             this.mainElement.style.cursor = 'pointer';
         } else if (!isInSmartCity && this.isHoveringSmartCity) {
+            bubbles.smaCitBubble.hide();
             this.smartCity.classList.remove('smartCityColored');
             this.isHoveringSmartCity = false;
             this.mainElement.removeEventListener('click', PicturePuzzle.redirectToSmartCity);
@@ -144,11 +187,13 @@ class PicturePuzzle {
         }
 
         if (isInPodcast && !this.isHoveringPodcast) {
+            bubbles.podcastBubble.load();
             this.podcast.classList.add('podcastColored');
             this.isHoveringPodcast = true;
             this.mainElement.addEventListener('click', PicturePuzzle.redirectToPodcast);
             this.mainElement.style.cursor = 'pointer';
         } else if (!isInPodcast && this.isHoveringPodcast) {
+            bubbles.podcastBubble.hide();
             this.podcast.classList.remove('podcastColored');
             this.isHoveringPodcast = false;
             this.mainElement.removeEventListener('click', PicturePuzzle.redirectToPodcast);
@@ -182,9 +227,15 @@ class PicturePuzzle {
     
     static buildPuzzle(puzzle) {
         puzzle.setSize();
-        let defArcBubble = puzzle.createDefArcBubble();
+        let bubbles = {
+            defArcBubble: puzzle.createDefArcBubble(),
+            serAptBubble: puzzle.createSerAptBubble(),
+            smaCitBubble: puzzle.createSmaCitBubble(),
+            podcastBubble: puzzle.createPodcastBubble(),
+            squHouBubble: puzzle.createSquHouBubble()
+        }
         puzzle.mainElement.addEventListener('mousemove', event => {
-            puzzle.createPieces(event, defArcBubble);
+            puzzle.createPieces(event, bubbles);
         });
         puzzle.connectNavToPuzzle();
     }

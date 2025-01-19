@@ -1,7 +1,7 @@
 import { Cookie } from "./Cookie.js";
 
 class Bubble {
-    constructor(mainBubble, elementQuery, bubbleX = null, bubbleY = null) {
+    constructor(mainBubble, elementQuery, bubbleX = null, bubbleY = null, mainWidth = null, mainHeight = null, arrowAtTop = false) {
         this.mainBubble = mainBubble;
         this.bubble = document.querySelector(elementQuery);
         this.bubbleX = bubbleX;
@@ -17,7 +17,35 @@ class Bubble {
             else if (this.fiCookie.value == 1)
                 this.firstInteraction = false;
         }
+        else {
+            this.setNoMainBubbleSize(elementQuery, mainWidth, mainHeight, arrowAtTop);
+        }
         window.addEventListener('resize', () => this.load());
+    }
+
+    setNoMainBubbleSize(elementQuery, mainWidth, mainHeight, arrowAtTop) {
+        this.bubble.style.width = mainWidth / 3 + 'px';
+        this.bubble.style.height = mainHeight / 3 + 'px';
+        this.bubble.style.padding = mainWidth / 80 + 'px';
+        this.bubble.style.border = `${mainWidth / 230}px solid #00D072`;
+        let title = document.querySelector(elementQuery + ' h3');
+        let text = document.querySelector(elementQuery + ' p');
+        let arrow = document.querySelector(elementQuery + ' .speech-arrow');
+        title.style.fontSize = mainWidth / 80 + 'px';
+        text.style.fontSize = mainWidth / 90 + 'px';
+        title.style.marginBottom = '0';
+        text.style.marginBottom = '0';
+        arrow.style.setProperty('--arrow-before-border-left', `${mainWidth / 80}px solid transparent`);
+        arrow.style.setProperty('--arrow-before-border-right', `${mainWidth / 80}px solid transparent`);
+        arrow.style.setProperty('--arrow-before-border-top', `${mainWidth / 80}px solid #00D072`);
+        arrow.style.setProperty('--arrow-after-border-left', `${mainWidth / 80}px solid transparent`);
+        arrow.style.setProperty('--arrow-after-border-right', `${mainWidth / 80}px solid transparent`);
+        arrow.style.setProperty('--arrow-after-border-top', `${mainWidth / 80}px solid #000000`);
+        arrow.style.setProperty('--arrow-after-top', `-${mainWidth / 230}px`);
+        if (arrowAtTop) {
+            arrow.style.transform = 'rotate(180deg)';
+            arrow.style.bottom = `${(mainHeight / 3) - (mainWidth / 230)}px`
+        }
     }
 
     setMainEventListeners() {
