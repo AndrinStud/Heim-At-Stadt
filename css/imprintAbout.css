@@ -114,7 +114,6 @@ header img,
 .footer-row.bottom-row {
     border-top: 1.5px solid #fff;
     border-bottom: 1.5px solid #fff;
-    margin-top: 30px;
 }
 
 .footer-row.bottom-row .footer-col a {
@@ -123,6 +122,28 @@ header img,
     text-decoration-thickness: 1.5px;
     color: white;
     font-weight: bold;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row .footer-col {
+    display: flex;
+}
+
+.top-row .footer-col:not(.oben) {
+    justify-content: center;
+}
+
+.top-row .oben {
+    flex-direction: column;
+    text-align: center;
+}
+
+.top-row .oben a {
+    margin-bottom: 0.6vh;
 }
 
 .col-with-subgrid .subgrid {
@@ -140,26 +161,18 @@ header img,
     border-right: 1.5px solid #fff;
 }
 
-.oben {
-    text-align: right;
-    margin: 0;
-}
-
 .oben a {
     display: inline-block;
-    text-decoration: underline;
-    /* Unterstreichen */
-    text-decoration-color: white;
-    /* Unterstreichung in Weiß */
-    text-decoration-thickness: 1px;
-    /* Dicke der Linie */
+    text-decoration: none;
     color: white;
     border: 2px solid #00D072;
     padding: 5px 20px;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
-    white-space: nowrap;
-    /* Verhindert Zeilenumbruch */
+}
+
+.logo {
+    height: unset;
 }
 
 .logo img {
@@ -173,26 +186,17 @@ header img,
 
 /* ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR ROTATOR */
 
-.rotator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .rotating-text {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: #fff;
-    /* same horizontal shift as the original demo, optional */
-    transform: translateX(-80px);
 }
 
-.rotating-text p {
-    display: inline-flex;
-    margin: 0;
-    vertical-align: top;
-    padding-top: 30px;
+.rotating-text .rotating-names {
+    width: 110px;
+    margin-left: 5px;
+    transition: width 2s;
 }
 
 /* ====== Each "word" is absolutely positioned & hidden by default ====== */
@@ -277,6 +281,10 @@ header img,
         font-size: 14px;
     }
 
+    .footer {
+        gap: 1vh;
+    }
+
     .footer-inner {
         display: grid;
         grid-template-rows: auto auto auto;
@@ -285,39 +293,6 @@ header img,
         /* Eine Spalte pro Zeile */
         gap: 5px;
         /* Abstand zwischen den Zeilen */
-    }
-
-    /* Erste Zeile: Logo links, "Nach oben" rechts */
-    .footer-row.top-row {
-        display: grid;
-        grid-template-columns: auto auto;
-        /* Zwei Spalten */
-        align-items: center;
-        /* Vertikal ausrichten */
-        gap: 0px;
-        /* Abstand zwischen Logo und Nach oben */
-    }
-
-    /* Logo bleibt links */
-    .footer-row.top-row .logo {
-        justify-self: start;
-        /* Am Anfang der Zeile ausrichten */
-    }
-
-    /* "Nach oben" bleibt rechts */
-    .footer-row.top-row .oben {
-        justify-self: end;
-        /* Am Ende der Zeile ausrichten */
-    }
-
-    /* Rotating Text (wird auf Zeile 3 verschoben) */
-    .footer-row.top-row .rotator {
-        grid-column: 1 / -1;
-        /* Vollständige Breite */
-        grid-row: 2;
-        /* Verschiebt in eine neue Zeile */
-        text-align: center;
-        /* Zentriert den Text */
     }
 
     /* Zweite Zeile (ursprüngliches Layout bleibt unverändert) */
@@ -360,4 +335,24 @@ header img,
 
 .infos a {
     display: block;
+}
+
+.bottom-row .col-with-subgrid .sub-col {
+    text-align: center;
+    font-size: 3vh;
+    padding: 1vh;
+}
+
+@media (min-width: 574px) {
+    .top-row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* min width 574px und max width 600px */
+@media (min-width: 574px) and (max-width: 600px) {
+    .logo img {
+        width: 125px;
+    }
 }

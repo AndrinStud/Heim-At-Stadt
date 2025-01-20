@@ -23,8 +23,8 @@ words[currentWordIndex].style.opacity = "1";
 // 4) Define the rotate function with the original transitions
 function rotateText() {
   let currentWord = words[currentWordIndex];
-  let nextWord =
-    currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
+  let nextWord = currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
+  document.querySelector('.rotating-names').style.width = nextWord.offsetWidth + 'px';
 
   // Rotate out letters of current word
   Array.from(currentWord.children).forEach((letter, i) => {
