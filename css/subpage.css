@@ -68,7 +68,7 @@ p {
     width: 100%;
 }
 
-.podcastEmbeds iframe:first-child {
+.podcastEmbeds iframe:not(:last-child) {
     margin-bottom: 1vh;
 }
 

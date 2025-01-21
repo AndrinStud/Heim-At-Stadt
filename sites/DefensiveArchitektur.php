@@ -152,7 +152,7 @@ $facts = $stmt->fetchAll();
 
     import { Factchecker } from "../js/Factchecker.js";
     let facts = <?php echo json_encode($facts); ?>;
-    new Factchecker("0aMJ8EGVAEs", facts);
+    new Factchecker("Jmsm83UL_Hg", facts);
   </script>
 </body>
 
