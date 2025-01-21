@@ -25,7 +25,7 @@ class Bubble {
 
     setNoMainBubbleSize(elementQuery, mainWidth, mainHeight, arrowAtTop) {
         this.bubble.style.width = mainWidth / 3 + 'px';
-        this.bubble.style.height = mainHeight / 3 + 'px';
+        this.bubble.style.height = mainHeight / 7 + 'px';
         this.bubble.style.padding = mainWidth / 80 + 'px';
         this.bubble.style.border = `${mainWidth / 230}px solid #00D072`;
         let title = document.querySelector(elementQuery + ' h3');
@@ -44,7 +44,7 @@ class Bubble {
         arrow.style.setProperty('--arrow-after-top', `-${mainWidth / 230}px`);
         if (arrowAtTop) {
             arrow.style.transform = 'rotate(180deg)';
-            arrow.style.bottom = `${(mainHeight / 3) - (mainWidth / 230)}px`
+            arrow.style.bottom = `${(mainHeight / 7) - (mainWidth / 230)}px`
         }
     }
 

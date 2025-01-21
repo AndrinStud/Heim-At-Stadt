@@ -74,7 +74,7 @@ class PicturePuzzle {
         let mainWidth = rect.width;
         let mainHeight = rect.height;
         let x = mainDifferenceToLeft + mainWidth * 0.3;
-        let y = mainDifferenceToTop + mainHeight * 0.33;
+        let y = mainDifferenceToTop + mainHeight * 0.35;
         return new Bubble(false, '#ser-apt-bubble', x, y, mainWidth, mainHeight, true);
     }
 
@@ -96,7 +96,7 @@ class PicturePuzzle {
         let mainWidth = rect.width;
         let mainHeight = rect.height;
         let x = mainDifferenceToLeft + mainWidth * 0.13;
-        let y = mainDifferenceToTop + mainHeight * 0.2;
+        let y = mainDifferenceToTop + mainHeight * 0.38;
         return new Bubble(false, '#podcast-bubble', x, y, mainWidth, mainHeight);
     }
 
@@ -107,7 +107,7 @@ class PicturePuzzle {
         let mainWidth = rect.width;
         let mainHeight = rect.height;
         let x = mainDifferenceToLeft + mainWidth * 0.52;
-        let y = mainDifferenceToTop + mainHeight * 0.08;
+        let y = mainDifferenceToTop + mainHeight * 0.25;
         return new Bubble(false, '#squ-hou-bubble', x, y, mainWidth, mainHeight);
     }
 
