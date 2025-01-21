@@ -26,6 +26,24 @@ $facts = $stmt->fetchAll();
 </head>
 
 <body id="top">
+  <div class="logoAndMobileNav">
+    <div class="mobileNavTop">
+      <a href="https://heimatstadt.info/">
+        <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt" class="logo">
+      </a>
+      <a href="javascript:void(0);" id="hamburgerIcon">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <div id="mobileNavBottom">
+      <a href="../sites/ServicedApartments.php">Serviced Apartments</a>
+      <a href="../sites/Hausbesetzung.php">Hausbesetzung</a>
+      <a href="../sites/SmartCity.php">Smart City</a>
+      <a href="../sites/DefensiveArchitektur.php">Defensive Architektur</a>
+      <a href="https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg"
+        target="_blank">Podcast</a>
+    </div>
+  </div>
   <header id="menu">
     <nav>
       <ul>
@@ -127,6 +145,9 @@ $facts = $stmt->fetchAll();
   </footer>
   <script type="module">
     import "../js/rotator.js";
+    import { MobileMenu } from '../js/Navigation.js';
+    new MobileMenu(true);
+
     import { Factchecker } from "../js/Factchecker.js";
     let facts = <?php echo json_encode($facts); ?>;
     new Factchecker("Ce4C790pRR8", facts);

@@ -1,10 +1,19 @@
 header {
     height: unset;
     margin-bottom: 1vh;
+    display: none;
 }
 
 header img {
     height: 3vh;
+}
+
+.mobileNavTop .logo {
+    height: 5vh;
+}
+
+#mobileNavBottom a:last-child {
+    border-bottom: none !important;
 }
 
 #player {
@@ -446,6 +455,14 @@ footer {
     .top-row {
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    header {
+        display: block;
+    }
+
+    .logoAndMobileNav {
+        display: none;
     }
 }
 

@@ -46,7 +46,7 @@ p {
 }
 
 nav a,
-.mobileNavBottom a {
+#mobileNavBottom a {
     text-decoration: none;
     color: white;
 }
