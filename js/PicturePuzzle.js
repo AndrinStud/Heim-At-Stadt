@@ -19,28 +19,23 @@ class PicturePuzzle {
     }
 
     static redirectToDefensiveArchitecture() {
-        //window.location.href = 'sites/DefensiveArchitektur.php';
-        window.location.href = 'sites/UntilPublication.html';
+        window.location.href = 'sites/DefensiveArchitektur.php';
     }
     
     static redirectToSquattedHouse() {
-        //window.location.href = 'sites/Hausbesetzung.php';
-        window.location.href = 'sites/UntilPublication.html';
+        window.location.href = 'sites/Hausbesetzung.php';
     }
     
     static redirectToServicedApartments() {
-        //window.location.href = 'sites/ServicedApartments.php';
-        window.location.href = 'sites/UntilPublication.html';
+        window.location.href = 'sites/ServicedApartments.php';
     }
     
     static redirectToSmartCity() {
-        //window.location.href = 'sites/SmartCity.php';
-        window.location.href = 'sites/UntilPublication.html';
+        window.location.href = 'sites/SmartCity.php';
     }
     
     static redirectToPodcast() {
-        //window.location.href = 'sites/Podcast.html';
-        window.location.href = 'sites/UntilPublication.html';
+        window.location.href = 'sites/Podcast.html';
     }
 
     setSize() {

@@ -31,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heim@Stadt - Live Chat Creator</title>
+    <title>heim@stadt - Live Chat Creator</title>
     <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/livechatcreator.css">

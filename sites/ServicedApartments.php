@@ -18,7 +18,7 @@ $facts = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heim@Stadt - Serviced Apartments</title>
+  <title>heim@stadt - Serviced Apartments</title>
   <script src="https://kit.fontawesome.com/e5010892c5.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
   <link rel="stylesheet" href="../css/main.css">
