@@ -1,5 +1,5 @@
 // 1) Get all .word elements
-let words = document.querySelectorAll(".word");
+let words = document.querySelectorAll("footer .word");
 
 // 2) Convert each word's text into individual <span class="letter">
 words.forEach(word => {
