@@ -25,7 +25,7 @@ $facts = $stmt->fetchAll();
   <link rel="stylesheet" href="../css/subpage.css">
 </head>
 
-<body id="top">
+<body id="top" class="videoBody">
   <div class="logoAndMobileNav">
     <div class="mobileNavTop">
       <a href="https://heimatstadt.info/">

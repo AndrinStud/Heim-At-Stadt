@@ -485,3 +485,14 @@ footer {
         width: 125px;
     }
 }
+
+@media (min-width: 574px) and (max-width: 800px) {
+    .videoBody {
+        height: 100vh;
+    }
+
+    .videoBody footer {
+        position: absolute;
+        bottom: 0;
+    }
+}
