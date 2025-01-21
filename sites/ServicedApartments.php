@@ -13,7 +13,7 @@ $stmt = $pdo->query("SELECT a.name, f.comment, f.video_timestamp
 $facts = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8">
