@@ -36,12 +36,11 @@ $facts = $stmt->fetchAll();
       </a>
     </div>
     <div id="mobileNavBottom">
-      <a href="../sites/ServicedApartments.php">Serviced Apartments</a>
-      <a href="../sites/Hausbesetzung.php">Hausbesetzung</a>
-      <a href="../sites/SmartCity.php">Smart City</a>
-      <a href="../sites/DefensiveArchitektur.php">Defensive Architektur</a>
-      <a href="https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg"
-        target="_blank">Podcast</a>
+      <a href="#">Serviced Apartments</a>
+      <a href="Hausbesetzung.php">Hausbesetzung</a>
+      <a href="SmartCity.php">Smart City</a>
+      <a href="DefensiveArchitektur.php">Defensive Architektur</a>
+      <a href="Podcast.html">Podcast</a>
     </div>
   </div>
   <header id="menu">
@@ -61,7 +60,7 @@ $facts = $stmt->fetchAll();
         <a href="DefensiveArchitektur.php">
           <li>Defensive Architektur</li>
         </a>
-        <a href="https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg" target="_blank">
+        <a href="Podcast.html">
           <li>Podcast</li>
         </a>
       </ul>

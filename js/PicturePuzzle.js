@@ -39,7 +39,7 @@ class PicturePuzzle {
     }
     
     static redirectToPodcast() {
-        //window.open('https://open.spotify.com/show/6VrQMTrcKcIwBZdBUiqksx?si=45XMnEBaSuivcg1DRX6dBg', '_blank');
+        //window.location.href = 'sites/Podcast.html';
         window.location.href = 'sites/UntilPublication.html';
     }
 
