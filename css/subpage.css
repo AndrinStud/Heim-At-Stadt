@@ -58,9 +58,17 @@ p {
     font-size: 2.2vw;
 }
 
-.titleAndLead {
+.titleAndLead, .podcastEmbeds {
     width: 90vw;
     margin: 0 auto;
+    margin-bottom: 1vh;
+}
+
+.podcastEmbeds iframe {
+    width: 100%;
+}
+
+.podcastEmbeds iframe:first-child {
     margin-bottom: 1vh;
 }
 
@@ -99,8 +107,13 @@ p {
     h1 .word {
         font-size: 1.2vw;
     }
+
+    .podcastEmbeds {
+        width: unset;
+        margin: unset;
+    }
     
-    p {
+    p, .podcastEmbeds iframe {
         font-size: 1.2vw;
         width: 80vw;
         margin-left: 3vw;
