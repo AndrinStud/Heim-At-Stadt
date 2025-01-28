@@ -70,14 +70,13 @@ $facts = $stmt->fetchAll();
     <section class="titleAndLead">
       <h1>Defensive Architektur: Verborgene Barrieren <span class="word andrin">von
           Andrin Schärli</span></h1>
-      <p>Defensive Architektur, von Skatestoppern bis hin zu ungemütlichen Sitzbänken, beeinflusst den öffentlichen
-        Raum
-        in Schweizer Städten auf subtile, aber tiefgreifende Weise. Diese Massnahmen sollen Sicherheit fördern und
-        Nutzungskonflikte entschärfen, schränken jedoch gleichzeitig die Zugänglichkeit und Aneignung öffentlicher
-        Orte
-        ein. Entdecken Sie, wie diese Architektur gestaltet wird, welche Debatten sie auslöst und welche
-        gesellschaftlichen Ziele damit verfolgt werden - von klassischer Musik am Hauptbahnhof bis hin zu Sperren, die
-        Liegen oder Skaten verhindern. Ein Blick auf die Grenzen zwischen Funktionalität und sozialer Exklusion.</p>
+      <p>Was haben ungemütliche Sitzbänke, Skatestopper und klassische Musik an Bahnhöfen gemeinsam? Solche Elemente
+        sind typische Beispiele für sogenannte defensive Architektur. Sie zielen darauf ab, bestimmte Verhaltensweisen
+        im öffentlichen Raum einzuschränken oder zu lenken. Oft geht es auch darum, obdachlose Menschen aus dem
+        öffentlichen Raum zu vertreiben. Ein Stadtführer des Magazin Surprise, eine Gassenarbeiterin, ein Architekt und
+        ein Betroffener erläutern, was hinter dieser Gestaltungsweise steckt. Der Film zeigt neue Perspektiven auf
+        Städte in der Deutschschweiz und macht Barrieren sichtbar, die vielen bislang verborgen geblieben sein könnten.
+      </p>
     </section>
     <section class="playerAndFactcheck">
       <aside id="player"></aside>
