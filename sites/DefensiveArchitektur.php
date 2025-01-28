@@ -90,7 +90,7 @@ $facts = $stmt->fetchAll();
     <div class="top-row">
       <div class="footer-col">
         <div class="logo">
-          <a href="/Heim-At-Stadt/index.html">
+          <a href="https://heimatstadt.info/">
             <img src="/images/Logo_Heimatstadt.png" alt="heimatstadt logo">
           </a>
         </div>
