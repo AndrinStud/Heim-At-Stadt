@@ -36,7 +36,8 @@ main {
 h1,
 h3,
 span,
-p {
+p,
+.impAbtMain li {
     font-family: 'proxima-nova', sans-serif;
 }
 
