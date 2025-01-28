@@ -19,7 +19,7 @@ class PicturePuzzle {
     }
 
     static redirectToDefensiveArchitecture() {
-        window.location.href = 'sites/UntilPublication.html';
+        window.location.href = 'sites/DefensiveArchitektur.php';
     }
     
     static redirectToSquattedHouse() {
