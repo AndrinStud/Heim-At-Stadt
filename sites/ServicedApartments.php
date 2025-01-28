@@ -37,7 +37,7 @@ $facts = $stmt->fetchAll();
     </div>
     <div id="mobileNavBottom">
       <a href="#">Serviced Apartments</a>
-      <a href="Hausbesetzung.php">Hausbesetzung</a>
+      <a href="UntilPublication.html">Hausbesetzung</a>
       <a href="SmartCity.php">Smart City</a>
       <a href="DefensiveArchitektur.php">Defensive Architektur</a>
       <a href="Podcast.html">Podcast</a>
@@ -51,7 +51,7 @@ $facts = $stmt->fetchAll();
             <img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt">
           </li>
         </a>
-        <a href="Hausbesetzung.php">
+        <a href="UntilPublication.html">
           <li>Hausbesetzung</li>
         </a>
         <a href="SmartCity.php">

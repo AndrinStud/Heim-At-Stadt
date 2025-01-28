@@ -37,7 +37,7 @@ $facts = $stmt->fetchAll();
     </div>
     <div id="mobileNavBottom">
       <a href="ServicedApartments.php">Serviced Apartments</a>
-      <a href="Hausbesetzung.php">Hausbesetzung</a>
+      <a href="UntilPublication.html">Hausbesetzung</a>
       <a href="#">Smart City</a>
       <a href="DefensiveArchitektur.php">Defensive Architektur</a>
       <a href="Podcast.html">Podcast</a>
@@ -54,7 +54,7 @@ $facts = $stmt->fetchAll();
         <a href="ServicedApartments.php">
           <li>Serviced Apartments</li>
         </a>
-        <a href="Hausbesetzung.php">
+        <a href="UntilPublication.html">
           <li>Hausbesetzung</li>
         </a>
         <a href="DefensiveArchitektur.php">

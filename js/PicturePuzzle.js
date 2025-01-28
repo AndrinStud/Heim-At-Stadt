@@ -23,7 +23,7 @@ class PicturePuzzle {
     }
     
     static redirectToSquattedHouse() {
-        window.location.href = 'sites/Hausbesetzung.php';
+        window.location.href = 'sites/UntilPublication.html';
     }
     
     static redirectToServicedApartments() {
