@@ -27,7 +27,7 @@ class Bubble {
         this.bubble.style.width = mainWidth / 3 + 'px';
         this.bubble.style.height = mainHeight / 7 + 'px';
         this.bubble.style.padding = mainWidth / 80 + 'px';
-        this.bubble.style.border = `${mainWidth / 230}px solid #00D072`;
+        this.bubble.style.border = `${mainWidth / 230}px solid black`;
         let title = document.querySelector(elementQuery + ' h3');
         let text = document.querySelector(elementQuery + ' p');
         let arrow = document.querySelector(elementQuery + ' .speech-arrow');
@@ -37,10 +37,10 @@ class Bubble {
         text.style.marginBottom = '0';
         arrow.style.setProperty('--arrow-before-border-left', `${mainWidth / 80}px solid transparent`);
         arrow.style.setProperty('--arrow-before-border-right', `${mainWidth / 80}px solid transparent`);
-        arrow.style.setProperty('--arrow-before-border-top', `${mainWidth / 80}px solid #00D072`);
+        arrow.style.setProperty('--arrow-before-border-top', `${mainWidth / 80}px solid black`);
         arrow.style.setProperty('--arrow-after-border-left', `${mainWidth / 80}px solid transparent`);
         arrow.style.setProperty('--arrow-after-border-right', `${mainWidth / 80}px solid transparent`);
-        arrow.style.setProperty('--arrow-after-border-top', `${mainWidth / 80}px solid #000000`);
+        arrow.style.setProperty('--arrow-after-border-top', `${mainWidth / 80}px solid white`);
         arrow.style.setProperty('--arrow-after-top', `-${mainWidth / 230}px`);
         if (arrowAtTop) {
             arrow.style.transform = 'rotate(180deg)';
